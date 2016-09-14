@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Derby (Embedded) - ArenaMasters" uuid="74c4db51-f828-4b5a-afb7-b4d1436a425c">
+      <driver-ref>derby.embedded</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby:d:\derbyDB\ArenaMasters;create=true</jdbc-url>
+    </data-source>
+  </component>
+</project>

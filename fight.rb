@@ -94,8 +94,8 @@ class Event
 
   def buildSchedule
 #for each team 1, roster 1 find opponent on team 2
-    @team.each { |x|
-      x.roster.each { |y| @fightSchedule << Fight.new(y,} }
+ #   @team.each { |x|
+ #     x.roster.each { |y| @fightSchedule << Fight.new(y,} }
 
   end
 
