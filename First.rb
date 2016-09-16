@@ -18,7 +18,7 @@ puts yourteam
 #trial.run
 #SparticusLives
 
-FridayFight = Event.new("Fight", '1/31/2008',myteam,yourteam)
+FridayFight = Event.new("Gladiator Mania!!!", '1/31/2008',myteam,yourteam)
 FridayFight.buildSchedule
 FridayFight.run
 
