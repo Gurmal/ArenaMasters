@@ -7,8 +7,8 @@ class FightsController < ApplicationController
   def run
     $loglevel = 4
     @log=""
-    @fighters.each { |x| x.setHP
-    x.setInitiative}
+    @fighters = @fight.fight_items
+	@fighters.each { |x| x.setupFight}
 
 
     #initiative - identify fighter 1
@@ -30,19 +30,20 @@ class FightsController < ApplicationController
     #declare winner
     if @fighters[0].hp > @fighters[1].hp
       @fight.winner = @fighters[0].name
-      @fighters[0].reputation += 1
-      @fighters[1].reputation -= 1
+      @fighters[0].gladiator.reputation += 1
+      @fighters[1].gladiator.reputation -= 1
     else
       @fight.winner = @fighters[1].name
-      @fighters[1].reputation += 1
-      @fighters[0].reputation -= 1
+      @fighters[1].gladiator.reputation += 1
+      @fighters[0].gladiator.reputation -= 1
     end
     
     #dole out wounds
-    @fighters.each { |x| x.cleanup
+    @fighters.each { |x| x.gladiator.cleanup
     @log << x.name+" has died from his wounds." if x.hp <= 0 } if $loglevel >= 1
     
     logger.info(@log)
+	@fight.log = @log
     @fight.save
 
     redirect_to event_fight_path(@event,@fight), notice: @log
@@ -61,12 +62,12 @@ class FightsController < ApplicationController
     def attack(attacker,defender)
     hitDie = Dice.new
     atkDie = Dice.new(4)
-    damage = (atkDie + attacker.strmod)
+    damage = (atkDie + attacker.gladiator.strmod)
     @log << "dHP:"+defender.hp.to_s if $loglevel >= 3
     #attackers 1d20 + dexterity modifier against defenders spd
-    if (hitDie + attacker.hitmod) < 4
+    if (hitDie + attacker.gladiator.hitmod) < 4
       @log<< attacker.name+" misses." if $loglevel >= 2
-    elsif (hitDie + attacker.hitmod) > 18
+    elsif (hitDie + attacker.gladiator.hitmod) > 18
       defender.hp -= (2*damage)
       @log << attacker.name+" criticaly hits for "+ (2*damage).to_s + " damage." if $loglevel >= 2
     else

@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<%= @event.name %>
+<%= @event.name %><br>
+<%= @fight.sequence %><br>
+Winner: <%= @fight.winner %><br>
 <h1>Fighters in Fight</h1>
 <table>
   <thead>
@@ -23,6 +25,7 @@
   </table>
 
 <h2>Fight Log</h2>
+<%= @fight.log %>
 
 <p>
 <%= link_to 'Event', @event %> |

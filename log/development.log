@@ -8336,3 +8336,1566 @@ Processing by FightsController#show as HTML
 Completed 200 OK in 171ms (Views: 134.4ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/" for ::1 at 2016-11-29 12:17:16 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 404ms (Views: 366.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2016-11-29 12:18:49 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 121ms (Views: 91.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events" for ::1 at 2016-11-29 12:18:50 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 126ms (Views: 101.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events" for ::1 at 2016-11-29 12:19:44 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 122ms (Views: 98.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams" for ::1 at 2016-11-29 12:19:46 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 111ms (Views: 92.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events" for ::1 at 2016-11-29 12:19:47 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 115ms (Views: 94.7ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveGladiatorHpInit (20161129182446)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agladiators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "team_id" integer, "name" varchar, "fightStyle" integer, "str" integer, "dex" integer, "spd" integer, "con" integer, "chr" integer, "intl" integer, "birth" date, "firstfight" date, "death" date, "wounds" integer, "reputation" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "hp" integer, "hitmod" integer, "strmod" integer, "initiative" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "tindex_agladiators_on_team_id" ON "agladiators" ("team_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "agladiators" ("id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hp","hitmod","strmod","initiative")
+                     SELECT "id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hp","hitmod","strmod","initiative" FROM "gladiators"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "gladiators"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "gladiators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "team_id" integer, "name" varchar, "fightStyle" integer, "str" integer, "dex" integer, "spd" integer, "con" integer, "chr" integer, "intl" integer, "birth" date, "firstfight" date, "death" date, "wounds" integer, "reputation" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "hitmod" integer, "strmod" integer, "initiative" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_agladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_agladiators_on_team_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_gladiators_on_team_id" ON "gladiators" ("team_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hitmod","strmod","initiative")
+                     SELECT "id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hitmod","strmod","initiative" FROM "agladiators"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "agladiators"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "agladiators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "team_id" integer, "name" varchar, "fightStyle" integer, "str" integer, "dex" integer, "spd" integer, "con" integer, "chr" integer, "intl" integer, "birth" date, "firstfight" date, "death" date, "wounds" integer, "reputation" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "hitmod" integer, "strmod" integer, "initiative" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "tindex_agladiators_on_team_id" ON "agladiators" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "agladiators" ("id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hitmod","strmod","initiative")
+                     SELECT "id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hitmod","strmod","initiative" FROM "gladiators"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "gladiators"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "gladiators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "team_id" integer, "name" varchar, "fightStyle" integer, "str" integer, "dex" integer, "spd" integer, "con" integer, "chr" integer, "intl" integer, "birth" date, "firstfight" date, "death" date, "wounds" integer, "reputation" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "hitmod" integer, "strmod" integer)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_agladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_agladiators_on_team_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_gladiators_on_team_id" ON "gladiators" ("team_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hitmod","strmod")
+                     SELECT "id","team_id","name","fightStyle","str","dex","spd","con","chr","intl","birth","firstfight","death","wounds","reputation","created_at","updated_at","hitmod","strmod" FROM "agladiators"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "agladiators"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161129182446"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["name", "River"], ["fightStyle", 0], ["str", 20], ["dex", 17], ["spd", 15], ["con", 16], ["chr", 16], ["intl", 3], ["birth", Tue, 29 Nov 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-11-29 18:30:23 UTC], ["updated_at", 2016-11-29 18:30:23 UTC], ["hitmod", 0], ["strmod", 2]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/teams" for ::1 at 2016-11-29 12:31:10 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 117ms (Views: 94.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-11-29 12:31:16 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 156ms (Views: 129.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/teams/1/gladiators/new" for ::1 at 2016-11-29 12:31:23 -0600
+Processing by GladiatorsController#new as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/new.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (60.2ms)
+  Rendered gladiators/new.html.erb within layouts/application (78.7ms)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `hp' for #<Gladiator:0x3e211a8>):
+    78: 
+    79:   <div class="field">
+    80:     <%= f.label :hp %>
+    81:     <%= f.number_field :hp %>
+    82:   </div>
+    83: 
+    84:   <div class="field">
+  
+app/views/gladiators/_form.html.erb:81:in `block in _app_views_gladiators__form_html_erb__1004613501_23711916'
+app/views/gladiators/_form.html.erb:1:in `_app_views_gladiators__form_html_erb__1004613501_23711916'
+app/views/gladiators/new.html.erb:3:in `_app_views_gladiators_new_html_erb__831502735_32139468'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1018.2ms)
+Started GET "/teams/1/gladiators/new" for ::1 at 2016-11-29 12:32:23 -0600
+Processing by GladiatorsController#new as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/new.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (10.5ms)
+  Rendered gladiators/new.html.erb within layouts/application (29.6ms)
+Completed 200 OK in 150ms (Views: 122.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/teams/1/gladiators" for ::1 at 2016-11-29 12:32:29 -0600
+Processing by GladiatorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b7jgqaJ/vAhbaPlLso7aIcqIXomIiPsUUQlT8fN1uNyCcDDKL1O4NRwCYAnZsIwcJMgnoZu2gCehFcFD0baffA==", "gladiator"=>{"name"=>"Billy-Bob", "fightStyle"=>"", "str"=>"", "dex"=>"", "spd"=>"", "con"=>"", "chr"=>"", "intl"=>"", "birth(1i)"=>"2016", "birth(2i)"=>"11", "birth(3i)"=>"29", "firstfight(1i)"=>"2016", "firstfight(2i)"=>"11", "firstfight(3i)"=>"29", "death(1i)"=>"2016", "death(2i)"=>"11", "death(3i)"=>"29", "wounds"=>"", "reputation"=>"", "hitmod"=>"", "strmod"=>""}, "commit"=>"Create Gladiator", "team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "firstfight", "death", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Billy-Bob"], ["fightStyle", 0], ["str", 2], ["dex", 15], ["spd", 15], ["con", 8], ["chr", 18], ["intl", 19], ["birth", Tue, 29 Nov 2016], ["firstfight", Tue, 29 Nov 2016], ["death", Tue, 29 Nov 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-11-29 18:32:29 UTC], ["updated_at", 2016-11-29 18:32:29 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 10ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-11-29 12:32:29 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (20.6ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `hp' for #<Gladiator:0xa8e2ef0>):
+    41:         <td><%= gladiator.death %></td>
+    42:         <td><%= gladiator.wounds %></td>
+    43:         <td><%= gladiator.reputation %></td>
+    44:         <td><%= gladiator.hp %></td>
+    45:         <td><%= gladiator.hitmod %></td>
+    46:         <td><%= gladiator.strmod %></td>
+    47:         <td><%= link_to 'Show', team_gladiator_path(@team, gladiator) %></td>
+  
+app/views/gladiators/index.html.erb:44:in `block in _app_views_gladiators_index_html_erb___99825595_88591500'
+app/views/gladiators/index.html.erb:29:in `_app_views_gladiators_index_html_erb___99825595_88591500'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (992.6ms)
+Started GET "/teams/1/gladiators" for ::1 at 2016-11-29 12:33:20 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 146ms (Views: 113.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/new" for ::1 at 2016-11-29 12:33:55 -0600
+Processing by GladiatorsController#new as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/new.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (5.5ms)
+  Rendered gladiators/new.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 134ms (Views: 113.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/teams/1/gladiators" for ::1 at 2016-11-29 12:34:02 -0600
+Processing by GladiatorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+l8UmVDEsJkgTo0rNOEOPndKctoowdNSoW35mBNlLGkD7sN3oSRgt00kgbpPOJJgX5qDYkNGYapt+7awGn7bJw==", "gladiator"=>{"name"=>"Bob-Billy", "fightStyle"=>"2", "str"=>"", "dex"=>"", "spd"=>"", "con"=>"", "chr"=>"", "intl"=>"", "birth(1i)"=>"2016", "birth(2i)"=>"11", "birth(3i)"=>"29", "firstfight(1i)"=>"2016", "firstfight(2i)"=>"11", "firstfight(3i)"=>"29", "death(1i)"=>"2016", "death(2i)"=>"11", "death(3i)"=>"29", "wounds"=>"", "reputation"=>"", "hitmod"=>"", "strmod"=>""}, "commit"=>"Create Gladiator", "team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "firstfight", "death", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Bob-Billy"], ["fightStyle", 0], ["str", 20], ["dex", 6], ["spd", 7], ["con", 7], ["chr", 11], ["intl", 17], ["birth", Tue, 29 Nov 2016], ["firstfight", Tue, 29 Nov 2016], ["death", Tue, 29 Nov 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-11-29 18:34:02 UTC], ["updated_at", 2016-11-29 18:34:02 UTC], ["hitmod", 0], ["strmod", 2]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 10ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-11-29 12:34:02 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 113ms (Views: 93.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-11-29 12:34:09 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 116ms (Views: 95.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams" for ::1 at 2016-11-29 12:34:13 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 109ms (Views: 90.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2016-11-29 12:34:15 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 116ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/2" for ::1 at 2016-11-29 12:34:21 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 156ms (Views: 134.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/events/2/fights/14" for ::1 at 2016-11-29 12:34:25 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"2", "id"=>"14"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 117ms (Views: 96.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/fights/14/run" for ::1 at 2016-11-29 12:34:28 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `initiative' for #<Gladiator:0x9f57840>):
+  
+app/controllers/fights_controller.rb:15:in `block in run'
+app/controllers/fights_controller.rb:15:in `sort'
+app/controllers/fights_controller.rb:15:in `run'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (985.6ms)
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."event_id" = ? ORDER BY "fights"."id" ASC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+Started GET "/fights/14" for ::1 at 2016-11-29 13:10:54 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/fights/14"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered collection of C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [29 times] (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1327.0ms)
+Started GET "/" for ::1 at 2016-11-29 13:11:12 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 125ms (Views: 99.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events" for ::1 at 2016-11-29 13:11:15 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 125ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/2" for ::1 at 2016-11-29 13:11:18 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (42.1ms)
+Completed 200 OK in 152ms (Views: 131.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/2/fights/14" for ::1 at 2016-11-29 13:11:19 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"2", "id"=>"14"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 124ms (Views: 102.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fights/14/run" for ::1 at 2016-11-29 13:11:28 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (private method `initialize' called for #<FightItem:0xa7ce908>):
+  
+app/controllers/fights_controller.rb:11:in `block in run'
+app/controllers/fights_controller.rb:11:in `run'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1015.2ms)
+Started PUT "/__web_console/repl_sessions/906fb3e631d657fe377705262d3a317d" for ::1 at 2016-11-29 13:11:48 -0600
+Started PUT "/__web_console/repl_sessions/906fb3e631d657fe377705262d3a317d" for ::1 at 2016-11-29 13:12:02 -0600
+Started PUT "/__web_console/repl_sessions/906fb3e631d657fe377705262d3a317d" for ::1 at 2016-11-29 13:12:11 -0600
+Started PUT "/__web_console/repl_sessions/906fb3e631d657fe377705262d3a317d" for ::1 at 2016-11-29 13:12:19 -0600
+Started PUT "/__web_console/repl_sessions/906fb3e631d657fe377705262d3a317d" for ::1 at 2016-11-29 13:14:29 -0600
+Started PUT "/__web_console/repl_sessions/906fb3e631d657fe377705262d3a317d" for ::1 at 2016-11-29 13:14:38 -0600
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" ORDER BY "gladiators"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" ORDER BY "gladiators"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "gladiators" SET "fightStyle" = ?, "updated_at" = ? WHERE "gladiators"."id" = ?[0m  [["fightStyle", 2], ["updated_at", 2016-11-29 19:22:39 UTC], ["id", 1]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."event_id" = ? ORDER BY "fights"."id" ASC LIMIT ?[0m  [["event_id", 2], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" ORDER BY "fights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" ORDER BY "fights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" ORDER BY "fights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" ORDER BY "fights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 1]]
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" ORDER BY "fights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT  "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ? ORDER BY "fight_items"."id" ASC LIMIT ?[0m  [["fight_id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/fights/14/run" for ::1 at 2016-11-29 13:36:11 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 25], ["updated_at", 2016-11-29 19:36:11 UTC], ["id", 29]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 20], ["updated_at", 2016-11-29 19:36:11 UTC], ["id", 30]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 23], ["updated_at", 2016-11-29 19:36:11 UTC], ["id", 31]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 23], ["updated_at", 2016-11-29 19:36:11 UTC], ["id", 32]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 21.1ms)
+
+
+  
+NoMethodError (undefined method `strmod' for #<FightItem:0x5a62f40>):
+  
+app/controllers/fights_controller.rb:64:in `attack'
+app/controllers/fights_controller.rb:25:in `run'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1013.2ms)
+Started GET "/fights/14/run" for ::1 at 2016-11-29 13:39:15 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 4.0ms)
+
+
+  
+NoMethodError (undefined method `reputation' for #<FightItem:0x9b33fb8>):
+  
+app/controllers/fights_controller.rb:33:in `run'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1012.2ms)
+Started GET "/fights/14/run" for ::1 at 2016-11-29 13:41:27 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 3.0ms)
+
+
+  
+NoMethodError (undefined method `cleanup' for #<FightItem:0x9fa5eb8>):
+  
+app/controllers/fights_controller.rb:42:in `block in run'
+app/controllers/fights_controller.rb:42:in `run'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1009.2ms)
+Started GET "/fights/14/run" for ::1 at 2016-11-29 13:42:08 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+R2D2 goes first with initiative: vs Round 1dHP:20R2D2 hits for 2 damage.dHP:25Bones hits for 2 damage.23:18Round 2dHP:18R2D2 hits for 2 damage.dHP:23Bones hits for 1 damage.22:16Round 3dHP:16R2D2 hits for 4 damage.dHP:22Bones hits for 1 damage.21:12Round 4dHP:12R2D2 hits for 2 damage.dHP:21Bones hits for 1 damage.20:10Round 5dHP:10R2D2 hits for 3 damage.dHP:20Bones hits for 1 damage.19:7Round 6dHP:7R2D2 hits for 2 damage.dHP:19Bones hits for 1 damage.18:5Round 7dHP:5R2D2 hits for 2 damage.dHP:18Bones misses.18:3Round 8dHP:3R2D2 hits for 1 damage.dHP:18Bones hits for 3 damage.15:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "fights" SET "winner" = ?, "updated_at" = ? WHERE "fights"."id" = ?[0m  [["winner", "R2D2"], ["updated_at", 2016-11-29 19:42:08 UTC], ["id", 14]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/2/fights/14
+Completed 302 Found in 76ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/events/2/fights/14" for ::1 at 2016-11-29 13:42:08 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"2", "id"=>"14"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 146ms (Views: 125.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events/2" for ::1 at 2016-11-29 13:42:31 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 128ms (Views: 106.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/events" for ::1 at 2016-11-29 13:42:36 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 115ms (Views: 96.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/8" for ::1 at 2016-11-29 13:42:41 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 138ms (Views: 115.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:42:44 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 117ms (Views: 96.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:42:45 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 25], ["updated_at", 2016-11-29 19:42:45 UTC], ["id", 84]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 12], ["updated_at", 2016-11-29 19:42:45 UTC], ["id", 85]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 5 damage.dHP:25Luke hits for 1 damage.24:7Round 2dHP:7Fred hits for 4 damage.dHP:24Luke hits for 3 damage.21:3Round 3dHP:3Fred hits for 6 damage.dHP:21Luke hits for 3 damage.18:-3Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 17ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:42:45 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 122ms (Views: 101.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:45:15 -0600
+  
+SyntaxError (C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/fights_controller.rb:17: syntax error, unexpected unary+, expecting keyword_end
+...+@fighters[1].initiative.to_s +"<br>" if $loglevel >= 2
+...                               ^):
+  
+app/controllers/fights_controller.rb:17: syntax error, unexpected unary+, expecting keyword_end
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1015.2ms)
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:45:45 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs <br>Round 1dHP:12Fred criticaly hits for 12 damage.dHP:25Luke hits for 1 damage.24:0Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 50ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:45:46 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 132ms (Views: 111.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:15 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 4 damage.dHP:25Luke hits for 1 damage.24:8Round 2dHP:8Fred criticaly hits for 6 damage.dHP:24Luke misses.24:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 51ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:15 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 133ms (Views: 109.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:17 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 5 damage.dHP:25Luke hits for 4 damage.21:7Round 2dHP:7Fred hits for 3 damage.dHP:21Luke hits for 1 damage.20:4Round 3dHP:4Fred hits for 6 damage.dHP:20Luke hits for 3 damage.17:-2Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 9ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:17 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 128ms (Views: 106.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:18 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 3 damage.dHP:25Luke hits for 4 damage.21:9Round 2dHP:9Fred hits for 3 damage.dHP:21Luke hits for 3 damage.18:6Round 3dHP:6Fred hits for 3 damage.dHP:18Luke misses.18:3Round 4dHP:3Fred hits for 4 damage.dHP:18Luke misses.18:-1Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:18 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 141ms (Views: 118.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:19 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 6 damage.dHP:25Luke hits for 2 damage.23:6Round 2dHP:6Fred hits for 4 damage.dHP:23Luke criticaly hits for 2 damage.21:2
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:20 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 116ms (Views: 95.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:21 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 3 damage.dHP:25Luke hits for 4 damage.21:9Round 2dHP:9Fred hits for 3 damage.dHP:21Luke misses.21:6Round 3dHP:6Fred hits for 6 damage.dHP:21Luke criticaly hits for 6 damage.15:0Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:21 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 117ms (Views: 97.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:24 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 4 damage.dHP:25Luke hits for 3 damage.22:8Round 2dHP:8Fred hits for 5 damage.dHP:22Luke hits for 1 damage.21:3Round 3dHP:3Fred hits for 3 damage.dHP:21Luke hits for 4 damage.17:0Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:24 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 123ms (Views: 102.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:25 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 6 damage.dHP:25Luke hits for 1 damage.24:6Round 2dHP:6Fred hits for 5 damage.dHP:24Luke misses.24:1
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 8ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:25 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 117ms (Views: 95.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:46:28 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred hits for 5 damage.dHP:25Luke hits for 3 damage.22:7Round 2dHP:7Fred hits for 3 damage.dHP:22Luke hits for 2 damage.20:4Round 3dHP:4Fred criticaly hits for 10 damage.dHP:20Luke hits for 4 damage.16:-6Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:46:28 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 119ms (Views: 98.3ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLogToFightItem (20161129194931)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLogToFightItem (20161129194931)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "fight_items" ADD "log" varchar[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161129194931"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLogToFightItem (20161129194931)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afight_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fight_id" integer, "gladiator_id" integer, "initiative" integer, "hp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "log" varchar)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "tindex_afight_items_on_gladiator_id" ON "afight_items" ("gladiator_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "tindex_afight_items_on_fight_id" ON "afight_items" ("fight_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "afight_items" ("id","fight_id","gladiator_id","initiative","hp","created_at","updated_at","log")
+                     SELECT "id","fight_id","gladiator_id","initiative","hp","created_at","updated_at","log" FROM "fight_items"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "fight_items"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "fight_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fight_id" integer, "gladiator_id" integer, "initiative" integer, "hp" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_afight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_afight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_afight_items_on_gladiator_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_afight_items_on_gladiator_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE  INDEX "index_fight_items_on_fight_id" ON "fight_items" ("fight_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_fight_items_on_gladiator_id" ON "fight_items" ("gladiator_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "fight_items" ("id","fight_id","gladiator_id","initiative","hp","created_at","updated_at")
+                     SELECT "id","fight_id","gladiator_id","initiative","hp","created_at","updated_at" FROM "afight_items"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "afight_items"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20161129194931"]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLogToFight (20161129194931)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLogToFight (20161129194931)
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddLogToFights (20161129195718)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "fights" ADD "log" varchar[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161129195718"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_gladiator_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fight_items_on_fight_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_fights_on_event_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_gladiators_on_team_id' AND type='index'
+[0m
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:59:38 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 161ms (Views: 111.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/fights/37/run" for ::1 at 2016-11-29 13:59:40 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative: vs Round 1dHP:12Fred misses.dHP:25Luke hits for 4 damage.21:12Round 2dHP:12Fred misses.dHP:21Luke hits for 4 damage.17:12Round 3dHP:12Fred hits for 4 damage.dHP:17Luke hits for 1 damage.16:8Round 4dHP:8Fred hits for 5 damage.dHP:16Luke hits for 1 damage.15:3Round 5dHP:3Fred hits for 6 damage.dHP:15Luke misses.15:-3Luke has died from his wounds.
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[33mUPDATE "fights" SET "log" = ?, "updated_at" = ? WHERE "fights"."id" = ?[0m  [["log", "Fred goes first with initiative: vs Round 1dHP:12Fred misses.dHP:25Luke hits for 4 damage.21:12Round 2dHP:12Fred misses.dHP:21Luke hits for 4 damage.17:12Round 3dHP:12Fred hits for 4 damage.dHP:17Luke hits for 1 damage.16:8Round 4dHP:8Fred hits for 5 damage.dHP:16Luke hits for 1 damage.15:3Round 5dHP:3Fred hits for 6 damage.dHP:15Luke misses.15:-3Luke has died from his wounds."], ["updated_at", 2016-11-29 19:59:40 UTC], ["id", 37]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/37
+Completed 302 Found in 23ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 13:59:40 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 121ms (Views: 100.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 14:01:01 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  Rendered fights/show.html.erb within layouts/application (52.1ms)
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `fight' for #<#<Class:0xaa32308>:0xb065110>):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <%= @event.name %><br>
+    4: <%= fight.sequence %><br>
+    5: Winner: <%= fight.winner %><br>
+    6: <h1>Fighters in Fight</h1>
+    7: <table>
+  
+app/views/fights/show.html.erb:4:in `_app_views_fights_show_html_erb___30295691_92482512'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1014.7ms)
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 14:01:27 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 145ms (Views: 106.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 14:02:00 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 117ms (Views: 96.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/8" for ::1 at 2016-11-29 14:02:02 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 128ms (Views: 108.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/8/fights/38" for ::1 at 2016-11-29 14:02:04 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"38"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 116ms (Views: 94.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/fights/38/run" for ::1 at 2016-11-29 14:02:07 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 20], ["updated_at", 2016-11-29 20:02:07 UTC], ["id", 86]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 25], ["updated_at", 2016-11-29 20:02:07 UTC], ["id", 87]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Bones goes first with initiative: vs Round 1dHP:25Bones hits for 2 damage.dHP:20R2D2 hits for 2 damage.18:23Round 2dHP:23Bones hits for 4 damage.dHP:18R2D2 misses.18:19Round 3dHP:19Bones hits for 4 damage.dHP:18R2D2 hits for 3 damage.15:15
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fights" SET "log" = ?, "updated_at" = ? WHERE "fights"."id" = ?[0m  [["log", "Bones goes first with initiative: vs Round 1dHP:25Bones hits for 2 damage.dHP:20R2D2 hits for 2 damage.18:23Round 2dHP:23Bones hits for 4 damage.dHP:18R2D2 misses.18:19Round 3dHP:19Bones hits for 4 damage.dHP:18R2D2 hits for 3 damage.15:15"], ["updated_at", 2016-11-29 20:02:07 UTC], ["id", 38]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/38
+Completed 302 Found in 25ms (ActiveRecord: 14.5ms)
+
+
+Started GET "/events/8/fights/38" for ::1 at 2016-11-29 14:02:07 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"38"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 115ms (Views: 94.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/8" for ::1 at 2016-11-29 14:02:15 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 124ms (Views: 103.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/8/fights/37" for ::1 at 2016-11-29 14:02:16 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"37"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 115ms (Views: 94.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/8" for ::1 at 2016-11-29 14:02:20 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 8]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 37]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 38]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 39]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 41]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 132ms (Views: 110.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/8/fights/40" for ::1 at 2016-11-29 14:02:22 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"40"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 117ms (Views: 97.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fights/40/run" for ::1 at 2016-11-29 14:02:25 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.5ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 11], ["updated_at", 2016-11-29 20:02:25 UTC], ["id", 90]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["hp", 23], ["updated_at", 2016-11-29 20:02:25 UTC], ["id", 91]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+3P0 goes first with initiative: vs Round 1dHP:233P0 hits for 2 damage.dHP:11Frank hits for 1 damage.10:21Round 2dHP:213P0 hits for 3 damage.dHP:10Frank misses.10:18Round 3dHP:183P0 hits for 4 damage.dHP:10Frank hits for 4 damage.6:14Round 4dHP:143P0 hits for 4 damage.dHP:6Frank hits for 2 damage.4:10Round 5dHP:103P0 hits for 3 damage.dHP:4Frank hits for 2 damage.2:7
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fights" SET "winner" = ?, "log" = ?, "updated_at" = ? WHERE "fights"."id" = ?[0m  [["winner", "Frank"], ["log", "3P0 goes first with initiative: vs Round 1dHP:233P0 hits for 2 damage.dHP:11Frank hits for 1 damage.10:21Round 2dHP:213P0 hits for 3 damage.dHP:10Frank misses.10:18Round 3dHP:183P0 hits for 4 damage.dHP:10Frank hits for 4 damage.6:14Round 4dHP:143P0 hits for 4 damage.dHP:6Frank hits for 2 damage.4:10Round 5dHP:103P0 hits for 3 damage.dHP:4Frank hits for 2 damage.2:7"], ["updated_at", 2016-11-29 20:02:25 UTC], ["id", 40]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/8/fights/40
+Completed 302 Found in 23ms (ActiveRecord: 11.5ms)
+
+
+Started GET "/events/8/fights/40" for ::1 at 2016-11-29 14:02:25 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"40"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 120ms (Views: 99.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/8/fights/40" for ::1 at 2016-11-29 14:02:29 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"8", "id"=>"40"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 40]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 117ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+

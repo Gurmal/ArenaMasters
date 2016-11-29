@@ -22,27 +22,21 @@ class Gladiator < ApplicationRecord
   end
 
   def to_s
-    "Name:#{self.name} Str:#{self.str} Con:#{self.con} HP:#{self.HP} Dex:#{self.dex} Wnd:#{self.wounds} Rep:#{self.reputation} Val:#{self.value} Style:#{self.fightStyle} Spd:#{self.spd}"
+    "Name:#{self.name} Str:#{self.str} Con:#{self.con} Dex:#{self.dex} Wnd:#{self.wounds} Rep:#{self.reputation} Val:#{self.value} Style:#{self.fightStyle} Spd:#{self.spd}"
   end
 
-  def setHP
-    self.hp = (10 + self.con) - self.wounds
-    self.save
+  def hp
+    _hp = (10 + self.con) - self.wounds
   end
 
   def cleanup
-    self.wounds += 1 if self.hp <= 0
-    #self.value = self.str + self.dex + self.spd + self.con + self.chr + self.intl + self.reputation
-    self.firstfight = 'today' if self.firstfight == '1/1/2001'
-    self.save
+
   end
 
-  def setInitiative
+  def initiative
     iDie = Dice.new(20)
-    self.initiative = iDie.roll
-    self.initiative += 2 if self.spd.to_i >18
-    self.save
-    #puts @name + " I:"+@initiative.to_s
+    _initiative = iDie.roll
+    _initiative += 2 if self.spd.to_i >18
   end
 
 
@@ -62,8 +56,7 @@ private
 
     # @value = @str + @dex + @spd + @con + @chr + @intl
 
-    self.hp = 10+_con
-    if _dex > 18 
+        if _dex > 18 
       self.hitmod = 2 
     else 
       self.hitmod = 0
