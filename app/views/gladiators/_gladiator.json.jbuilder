@@ -1,0 +1,2 @@
+json.extract! gladiator, :id, :name, :fightStyle, :str, :dex, :spd, :con, :chr, :intl, :birth, :firstfight, :death, :wounds, :reputation, :hp, :hitmod, :strmod, :initiative, :created_at, :updated_at
+json.url gladiator_url(gladiator, format: :json)

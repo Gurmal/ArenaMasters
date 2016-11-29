@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<%= @event.name %>
+<h1>Fighters in Fight</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Name</th>
+      <th>Reputation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fight.gladiators.each do |gladiator| %>
+      <tr>
+      <td><%= gladiator.team.name %></td>
+        <td><%= link_to gladiator.name, team_gladiator_path(gladiator.team,gladiator) %></td>
+        <td><%= gladiator.reputation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+<h2>Fight Log</h2>
+
+<p>
+<%= link_to 'Event', @event %> |
+<%= link_to 'Back', :back %> |
+<%= link_to 'Run', run_fight_path(@fight) %>
+</p>

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: one
+  name: MyString
+  fightStyle: 1
+  str: 1
+  dex: 1
+  spd: 1
+  con: 1
+  chr: 1
+  intl: 1
+  birth: 2016-10-04
+  firstfight: 2016-10-04
+  death: 2016-10-04
+  wounds: 1
+  reputation: 1
+
+two:
+  team: two
+  name: MyString
+  fightStyle: 1
+  str: 1
+  dex: 1
+  spd: 1
+  con: 1
+  chr: 1
+  intl: 1
+  birth: 2016-10-04
+  firstfight: 2016-10-04
+  death: 2016-10-04
+  wounds: 1
+  reputation: 1

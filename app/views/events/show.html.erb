@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+  <h1><%= @event.name %></h1>
+
+<p>
+  <strong>Scheduled:</strong>
+  <%= @event.scheduledDate %>
+<br>
+  <strong>Run:</strong>
+  <%= @event.runDate %>
+</p>
+
+<h2>Fights on Schedule</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Fighters</th>
+      <th>Winner</th>
+      <th>Rounds</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event.fights.each do |fight| %>
+      <tr>
+      <td><%= link_to fight.id, event_fight_path(@event,fight)%></td>
+      <td><% fight.gladiators.each do |fighter| %>
+        (<%= fighter.team.name %>)
+        <%= link_to fighter.name, team_gladiator_path(fighter.team, fighter) %>
+        	<% end %>
+        </td>
+        <td><%= fight.winner %></td>
+        <td>0</td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Build Schedule' , buildSchedule_path(@event) %> |
+<%= link_to 'Back', events_path %>

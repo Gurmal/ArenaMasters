@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Derby (Embedded) - ArenaMasters" uuid="74c4db51-f828-4b5a-afb7-b4d1436a425c">
-      <database-info product="Apache Derby" version="10.11.1.1 - (1616546)" jdbc-version="4.2" driver-name="Apache Derby Embedded JDBC Driver" driver-version="10.11.1.1 - (1616546)">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <introspection-scope>:,APP</introspection-scope>
-      <resolve-scope>:,APP</resolve-scope>
+    <data-source name="Rails arenamasters: development" uuid="990c7a85-3797-4dee-b361-fc7784d399ae">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <auth-required>false</auth-required>
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails arenamasters: test" uuid="1e0d47fd-9a1c-4d2e-afd5-ed5c4ea94a34">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <auth-required>false</auth-required>
+      <first-sync>true</first-sync>
     </data-source>
   </component>
 </project>
