@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fight: one
+  gladiator: one
+  initiative: 1
+  hp: 1
+
+two:
+  fight: two
+  gladiator: two
+  initiative: 1
+  hp: 1

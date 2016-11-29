@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @gladiator.name %></h1>
+
+<p>
+  <strong>Reputation:</strong>
+  <%= @gladiator.reputation %>
+</p>
+
+<p>
+  <strong>Str:</strong>
+  <%= @gladiator.str %>
+
+  <strong>Dex:</strong>
+  <%= @gladiator.dex %>
+
+  <strong>Spd:</strong>
+  <%= @gladiator.spd %>
+
+  <strong>Con:</strong>
+  <%= @gladiator.con %>
+
+  <strong>Chr:</strong>
+  <%= @gladiator.chr %>
+
+  <strong>Intl:</strong>
+  <%= @gladiator.intl %>
+</p>
+<p>
+  <strong>Hp:</strong>
+  <%= @gladiator.hp %>
+
+  <strong>Hitmod:</strong>
+  <%= @gladiator.hitmod %>
+
+  <strong>Strmod:</strong>
+  <%= @gladiator.strmod %>
+</p>
+<p>
+  <strong>Fight style:</strong>
+  <%= @gladiator.fightStyle %>
+</p>
+<p>
+  <strong>Birth:</strong>
+  <%= @gladiator.birth %>
+<br>
+  <strong>First fight:</strong>
+  <%= @gladiator.firstfight %>
+<br>
+  <strong>Death:</strong>
+  <%= @gladiator.death %>
+</p>
+<p>
+  <strong>Wounds:</strong>
+  <%= @gladiator.wounds %>
+</p>
+
+<%= link_to 'Edit', edit_team_gladiator_path(@team, @gladiator) %> |
+<%= link_to 'Destroy', team_gladiator_path(@team,@gladiator), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', :back %> |
+<%= link_to 'Team', @team %>

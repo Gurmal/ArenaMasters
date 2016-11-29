@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Derby (Embedded) - ArenaMasters" uuid="74c4db51-f828-4b5a-afb7-b4d1436a425c">
-      <driver-ref>derby.embedded</driver-ref>
+    <data-source source="LOCAL" name="Rails arenamasters: development" uuid="990c7a85-3797-4dee-b361-fc7784d399ae">
+      <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
-      <jdbc-url>jdbc:derby:d:\derbyDB\ArenaMasters;create=true</jdbc-url>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Sites\arenamasters\db\development.sqlite3</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails arenamasters: test" uuid="1e0d47fd-9a1c-4d2e-afd5-ed5c4ea94a34">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Sites\arenamasters\db\test.sqlite3</jdbc-url>
     </data-source>
   </component>
 </project>

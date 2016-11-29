@@ -1,0 +1,43 @@
+<%= link_to 'Back', teams_path %>
+
+<p id="notice"><%= notice %></p>
+
+
+<h1>  <%= @team.name %></h1>
+<%= link_to 'Edit Team Name', edit_team_path(@team) %>
+
+<p>
+  <strong>Accountbalance:</strong>
+  <%= @team.accountbalance %>
+  <br>
+  <strong>Team Reputation:</strong>
+  <%= @team.reputation %>
+</p>
+
+
+<h2>Gladiators on Staff</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Reputation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.gladiators.each do |gladiator| %>
+      <tr>
+        <td><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
+        <td><%= gladiator.reputation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+<br>
+<%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+<%= link_to 'Back', teams_path %>
+
+<br><br>
+<strong>Teamid:</strong>
+  <%= @team.id %>

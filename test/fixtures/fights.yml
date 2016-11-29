@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: 
+  sequence: 1
+  winner: MyString
+  complete: false
+
+two:
+  event: 
+  sequence: 1
+  winner: MyString
+  complete: false
