@@ -3,7 +3,7 @@ class FightItem < ApplicationRecord
   belongs_to :gladiator
   
   def setupFight
-	self.initiative = self.gladiator.initiative
+	self.initiative = self.gladiator.rollInitiative
 	self.hp = self.gladiator.hp
 	self.save
   end
@@ -18,7 +18,11 @@ class FightItem < ApplicationRecord
 	self.gladiator.hitmod
   end
   
-    def to_s
+  def getInitiative
+    self.initiative
+  end
+
+  def to_s
     "HP:#{self.hp} Initiative:#{self.initiative} name:#{self.gladiator.name}"
   end
   private

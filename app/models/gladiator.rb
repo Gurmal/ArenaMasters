@@ -33,10 +33,10 @@ class Gladiator < ApplicationRecord
 
   end
 
-  def initiative
-    iDie = Dice.new(20)
-    _initiative = iDie.roll
+  def rollInitiative
+    _initiative = rand(20)+1
     _initiative += 2 if self.spd.to_i >18
+    return _initiative
   end
 
 

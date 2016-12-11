@@ -7,7 +7,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Sites\arenamasters\db\development.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Gurmal\Documents\GitHub\ArenaMasters\db\development.sqlite3</jdbc-url>
     </data-source>
     <data-source source="LOCAL" name="Rails arenamasters: test" uuid="1e0d47fd-9a1c-4d2e-afd5-ed5c4ea94a34">
       <driver-ref>sqlite.xerial</driver-ref>
@@ -15,7 +15,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Sites\arenamasters\db\test.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Gurmal\Documents\GitHub\ArenaMasters\db\test.sqlite3</jdbc-url>
     </data-source>
   </component>
 </project>
