@@ -1,5 +1,5 @@
 class FightsController < ApplicationController
-  before_action :set_fight
+  before_action :set_fight, only: [:show, :run]
 
   def show
   end

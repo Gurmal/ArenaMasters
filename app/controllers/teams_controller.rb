@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :backfill]
 
   # GET /teams
   # GET /teams.json
@@ -60,6 +60,21 @@ class TeamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def backfill
+    i = 0
+    while i < (10 - @team.gladiators.count)
+        @team.gladiators.build(name: 'Recruit '+(i+1).to_s)
+        i+=1
+    end
+    @team.save
+
+    respond_to do |format|
+      format.html { redirect_to @team, notice: 'Team populated.' }
+      format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

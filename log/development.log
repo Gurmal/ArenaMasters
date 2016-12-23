@@ -15192,3 +15192,1858 @@ Processing by GladiatorsController#show as HTML
 Completed 200 OK in 132ms (Views: 107.9ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for ::1 at 2016-12-23 07:44:48 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 340ms (Views: 302.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 07:45:34 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 164ms (Views: 137.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/edit" for ::1 at 2016-12-23 07:45:42 -0600
+Processing by TeamsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/edit.html.erb within layouts/application
+  Rendered teams/_form.html.erb (24.1ms)
+  Rendered teams/edit.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 155ms (Views: 136.4ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/teams/1" for ::1 at 2016-12-23 07:45:45 -0600
+Processing by TeamsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lGAtvLN/06l6WwQ2wmPi4lOH3ABUttMXzfIDrrGitq3T2uQzskQOJVaWEBnRw4mfSEz0wB8ByQhCzAcz5lHoBQ==", "team"=>{"name"=>"Flaming Rabble"}, "commit"=>"Update Team", "id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 07:45:45 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 117ms (Views: 95.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/1" for ::1 at 2016-12-23 07:51:52 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 121ms (Views: 97.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 07:51:56 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 115ms (Views: 96.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 07:51:58 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 116ms (Views: 94.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2016-12-23 07:51:59 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 120ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/2" for ::1 at 2016-12-23 07:52:02 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 14]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 159ms (Views: 136.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events" for ::1 at 2016-12-23 07:52:07 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 114ms (Views: 95.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/7" for ::1 at 2016-12-23 07:52:10 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT "fights".* FROM "fights" WHERE "fights"."event_id" = ?[0m  [["event_id", 7]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 32]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 33]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 34]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 35]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 36]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 133ms (Views: 114.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/7/fights/32" for ::1 at 2016-12-23 07:52:21 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"7", "id"=>"32"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 32]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 118ms (Views: 95.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/fights/32/run" for ::1 at 2016-12-23 07:52:24 -0600
+Processing by FightsController#run as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mFight Load (0.0ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mFightItem Load (0.0ms)[0m  [1m[34mSELECT "fight_items".* FROM "fight_items" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 32]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "initiative" = ?, "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["initiative", 12], ["hp", 25], ["updated_at", 2016-12-23 13:52:24 UTC], ["id", 74]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fight_items" SET "initiative" = ?, "hp" = ?, "updated_at" = ? WHERE "fight_items"."id" = ?[0m  [["initiative", 12], ["hp", 11], ["updated_at", 2016-12-23 13:52:24 UTC], ["id", 75]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Fred goes first with initiative 12 vs 3P0 with 12<br><b>Round: 1</b><br>aHP:25; dHP:11<br>Fred hits 3P0 for 3 damage.<br>aHP:25; dHP:8<br>aHP:8; dHP:25<br>3P0 hits Fred for 4 damage.<br>aHP:8; dHP:21<br>Fred(21) 3P0(8)<br><b>Round: 2</b><br>aHP:21; dHP:8<br>Fred hits 3P0 for 5 damage.<br>aHP:21; dHP:3<br>aHP:3; dHP:21<br>3P0 criticaly hits Fred for 4 damage.<br>aHP:3; dHP:17<br>Fred(17) 3P0(3)<br><b>Round: 3</b><br>aHP:17; dHP:3<br>Fred hits 3P0 for 5 damage.<br>aHP:17; dHP:-2<br>aHP:-2; dHP:17<br>3P0 hits Fred for 1 damage.<br>aHP:-2; dHP:16<br>Fred(16) 3P0(-2)<br><font color="green">Fred has won the match.</font><br><font color="red">3P0 has died from his wounds.</font><br>
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "fights" SET "winner" = ?, "log" = ?, "updated_at" = ? WHERE "fights"."id" = ?[0m  [["winner", "Fred"], ["log", "Fred goes first with initiative 12 vs 3P0 with 12<br><b>Round: 1</b><br>aHP:25; dHP:11<br>Fred hits 3P0 for 3 damage.<br>aHP:25; dHP:8<br>aHP:8; dHP:25<br>3P0 hits Fred for 4 damage.<br>aHP:8; dHP:21<br>Fred(21) 3P0(8)<br><b>Round: 2</b><br>aHP:21; dHP:8<br>Fred hits 3P0 for 5 damage.<br>aHP:21; dHP:3<br>aHP:3; dHP:21<br>3P0 criticaly hits Fred for 4 damage.<br>aHP:3; dHP:17<br>Fred(17) 3P0(3)<br><b>Round: 3</b><br>aHP:17; dHP:3<br>Fred hits 3P0 for 5 damage.<br>aHP:17; dHP:-2<br>aHP:-2; dHP:17<br>3P0 hits Fred for 1 damage.<br>aHP:-2; dHP:16<br>Fred(16) 3P0(-2)<br><font color=\"green\">Fred has won the match.</font><br><font color=\"red\">3P0 has died from his wounds.</font><br>"], ["updated_at", 2016-12-23 13:52:24 UTC], ["id", 32]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/events/7/fights/32
+Completed 302 Found in 32ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/events/7/fights/32" for ::1 at 2016-12-23 07:52:24 -0600
+Processing by FightsController#show as HTML
+  Parameters: {"event_id"=>"7", "id"=>"32"}
+  [1m[36mFight Load (0.5ms)[0m  [1m[34mSELECT  "fights".* FROM "fights" WHERE "fights"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering fights/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" INNER JOIN "fight_items" ON "gladiators"."id" = "fight_items"."gladiator_id" WHERE "fight_items"."fight_id" = ?[0m  [["fight_id", 32]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered fights/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 115ms (Views: 94.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/2/gladiators/6" for ::1 at 2016-12-23 07:52:48 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"2", "id"=>"6"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 2], ["id", 6], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 122ms (Views: 100.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/2" for ::1 at 2016-12-23 07:59:53 -0600
+  
+SyntaxError (C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/teams_controller.rb:70: syntax error, unexpected '\n', expecting =>
+C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/teams_controller.rb:90: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/teams_controller.rb:70: syntax error, unexpected '\n', expecting =>
+app/controllers/teams_controller.rb:90: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.8ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1013.1ms)
+Started GET "/teams/2" for ::1 at 2016-12-23 08:00:41 -0600
+  
+SyntaxError (C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/teams_controller.rb:70: syntax error, unexpected '\n', expecting =>
+C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/teams_controller.rb:90: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/teams_controller.rb:70: syntax error, unexpected '\n', expecting =>
+app/controllers/teams_controller.rb:90: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1001.7ms)
+Started GET "/teams/2" for ::1 at 2016-12-23 08:01:24 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 2]]
+  Rendered teams/show.html.erb within layouts/application (74.2ms)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `backFill' for #<#<Class:0x9b9cb98>:0x9b9c178>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backFill(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_81586308'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1002.5ms)
+Started GET "/teams/2" for ::1 at 2016-12-23 08:01:45 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 2]]
+  Rendered teams/show.html.erb within layouts/application (50.6ms)
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `backfillTeam' for #<#<Class:0x9b9cb98>:0xa34b548>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backfillTeam(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_85623636'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (989.2ms)
+Started GET "/teams/2" for ::1 at 2016-12-23 08:03:09 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 2]]
+  Rendered teams/show.html.erb within layouts/application (68.7ms)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `backfillTeam' for #<#<Class:0x4593930>:0x4520f10>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backfillTeam(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_36620808'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (997.3ms)
+Started GET "/teams/" for ::1 at 2016-12-23 08:03:25 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 125ms (Views: 103.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:03:31 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (49.1ms)
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `backfillTeam' for #<#<Class:0x4593930>:0xa3b8cb8>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backfillTeam(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_85838268'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1008.9ms)
+Started GET "/teams/1" for ::1 at 2016-12-23 08:04:36 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (64.7ms)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `backfill' for #<#<Class:0x95e3200>:0x95e2750>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backfill(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_78584868'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (995.2ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:04:54 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `gladiators' for nil:NilClass):
+  
+app/controllers/teams_controller.rb:66:in `backfill'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (992.8ms)
+  [1m[36mTeam Load (2.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" ORDER BY "teams"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? ORDER BY "gladiators"."id" ASC LIMIT ?[0m  [["team_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:06:53 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `gladiators' for nil:NilClass):
+  
+app/controllers/teams_controller.rb:66:in `backfill'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.3ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (997.5ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:08:02 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `gladiators' for nil:NilClass):
+  
+app/controllers/teams_controller.rb:66:in `backfill'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (994.7ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:08:15 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.0ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/teams_controller.rb:67:in `backfill'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (995.2ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:12:35 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 28ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:12:35 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 116ms (Views: 97.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:12:41 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (55.7ms)
+Completed 500 Internal Server Error in 127ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `backfill' for #<#<Class:0x9cf39c0>:0x5a9ccd8>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backfill(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_47512908'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1006.7ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:12:57 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:12:57 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 119ms (Views: 100.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:13:00 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (49.6ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `backfill' for #<#<Class:0x9cf39c0>:0xa2aec00>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', backfill(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_85293348'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1005.5ms)
+Started GET "/teams/1" for ::1 at 2016-12-23 08:13:36 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (51.1ms)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `team_backfill' for #<#<Class:0x9cf39c0>:0xa0044f0>):
+    36: 
+    37: <br>
+    38: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %>
+    39: <%= link_to 'Backfill Team', team_backfill(@team) %>
+    40: <%= link_to 'Back', teams_path %>
+    41: 
+    42: <br><br>
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_83895720'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (998.7ms)
+Started GET "/teams/1" for ::1 at 2016-12-23 08:14:02 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 121ms (Views: 97.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:16:05 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 6], ["dex", 18], ["spd", 10], ["con", 11], ["chr", 11], ["intl", 10], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:16:05 UTC], ["updated_at", 2016-12-23 14:16:05 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 18], ["dex", 5], ["spd", 12], ["con", 15], ["chr", 16], ["intl", 1], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:16:05 UTC], ["updated_at", 2016-12-23 14:16:05 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 12], ["dex", 3], ["spd", 20], ["con", 19], ["chr", 3], ["intl", 4], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:16:05 UTC], ["updated_at", 2016-12-23 14:16:05 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 41ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:16:05 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 122ms (Views: 103.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:16:20 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 114ms (Views: 94.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:16:38 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:16:38 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 113ms (Views: 94.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:16:40 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 123ms (Views: 98.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/new" for ::1 at 2016-12-23 08:16:43 -0600
+Processing by GladiatorsController#new as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/new.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (17.0ms)
+  Rendered gladiators/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 147ms (Views: 127.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/teams/1/gladiators" for ::1 at 2016-12-23 08:16:52 -0600
+Processing by GladiatorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iihX6J98iBu0xL0ZJSYPYjZn1rnCvTQskoCnFdoMF5NiNvAIP9lIcgCNv8Q/FFPo2e+dtoYklaLuPJDB+iehHw==", "gladiator"=>{"name"=>"Doe", "fightStyle"=>"", "str"=>"", "dex"=>"", "spd"=>"", "con"=>"", "chr"=>"", "intl"=>"", "birth(1i)"=>"2016", "birth(2i)"=>"12", "birth(3i)"=>"23", "firstfight(1i)"=>"2016", "firstfight(2i)"=>"12", "firstfight(3i)"=>"23", "death(1i)"=>"2016", "death(2i)"=>"12", "death(3i)"=>"23", "wounds"=>"", "reputation"=>"", "hitmod"=>"", "strmod"=>""}, "commit"=>"Create Gladiator", "team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "firstfight", "death", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Doe"], ["fightStyle", 0], ["str", 16], ["dex", 14], ["spd", 18], ["con", 12], ["chr", 7], ["intl", 14], ["birth", Fri, 23 Dec 2016], ["firstfight", Fri, 23 Dec 2016], ["death", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:16:52 UTC], ["updated_at", 2016-12-23 14:16:52 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 12ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:16:52 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 118ms (Views: 98.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:18:48 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 132ms (Views: 101.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:19:48 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 127ms (Views: 99.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:20:01 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 134ms (Views: 105.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/1" for ::1 at 2016-12-23 08:20:08 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 115ms (Views: 95.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:20:16 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 117ms (Views: 95.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/17" for ::1 at 2016-12-23 08:20:18 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 120ms (Views: 99.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:20:23 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 115ms (Views: 95.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/17/edit" for ::1 at 2016-12-23 08:20:26 -0600
+Processing by GladiatorsController#edit as HTML
+  Parameters: {"team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  Rendering gladiators/edit.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (6.0ms)
+  Rendered gladiators/edit.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 138ms (Views: 117.7ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/teams/1/gladiators/17" for ::1 at 2016-12-23 08:20:31 -0600
+Processing by GladiatorsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kVBAC5aMK2nurEEtVRReqGgtcZ5JkJq/xAwwZcVnWpyEz0ylcwpjkBGVgYKAMggL4SZ/nGlx9/wNRibgPMtmlA==", "gladiator"=>{"name"=>"Recuit 1", "fightStyle"=>"0", "str"=>"6", "dex"=>"18", "spd"=>"10", "con"=>"11", "chr"=>"11", "intl"=>"10", "birth(1i)"=>"2016", "birth(2i)"=>"12", "birth(3i)"=>"23", "firstfight(1i)"=>"2016", "firstfight(2i)"=>"12", "firstfight(3i)"=>"23", "death(1i)"=>"2016", "death(2i)"=>"12", "death(3i)"=>"23", "wounds"=>"0", "reputation"=>"0", "hitmod"=>"0", "strmod"=>"0"}, "commit"=>"Update Gladiator", "team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "gladiators" SET "name" = ?, "firstfight" = ?, "death" = ?, "updated_at" = ? WHERE "gladiators"."id" = ?[0m  [["name", "Recuit 1"], ["firstfight", Fri, 23 Dec 2016], ["death", Fri, 23 Dec 2016], ["updated_at", 2016-12-23 14:20:32 UTC], ["id", 17]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 16ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:20:32 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 116ms (Views: 95.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:21:28 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 119ms (Views: 97.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:21:42 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 130ms (Views: 104.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:21:57 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 123ms (Views: 99.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:22:26 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 115ms (Views: 96.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:22:29 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 118ms (Views: 99.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:23:17 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 117ms (Views: 97.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/3" for ::1 at 2016-12-23 08:24:41 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  Rendered teams/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 122ms (Views: 102.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/3/backfill" for ::1 at 2016-12-23 08:24:52 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 15], ["dex", 5], ["spd", 9], ["con", 1], ["chr", 8], ["intl", 3], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 10], ["dex", 20], ["spd", 18], ["con", 14], ["chr", 12], ["intl", 2], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 2], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 17], ["dex", 4], ["spd", 12], ["con", 20], ["chr", 19], ["intl", 5], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 13], ["dex", 4], ["spd", 16], ["con", 3], ["chr", 19], ["intl", 20], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 20], ["dex", 2], ["spd", 8], ["con", 1], ["chr", 10], ["intl", 12], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 0], ["strmod", 2]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 2], ["dex", 20], ["spd", 15], ["con", 11], ["chr", 16], ["intl", 5], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 2], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 3], ["dex", 16], ["spd", 6], ["con", 4], ["chr", 9], ["intl", 17], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 10], ["dex", 20], ["spd", 3], ["con", 15], ["chr", 14], ["intl", 20], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 2], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 3], ["fightStyle", 0], ["str", 16], ["dex", 10], ["spd", 20], ["con", 18], ["chr", 6], ["intl", 2], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:24:52 UTC], ["updated_at", 2016-12-23 14:24:52 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 31ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:24:52 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 112ms (Views: 94.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/3" for ::1 at 2016-12-23 08:24:55 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 114ms (Views: 94.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:25:12 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 121ms (Views: 102.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:25:13 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (1.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 114ms (Views: 94.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/teams/1/gladiators/17" for ::1 at 2016-12-23 08:27:19 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 118ms (Views: 95.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/17/edit" for ::1 at 2016-12-23 08:27:21 -0600
+Processing by GladiatorsController#edit as HTML
+  Parameters: {"team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  Rendering gladiators/edit.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (6.0ms)
+  Rendered gladiators/edit.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 143ms (Views: 121.5ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/teams/1/gladiators/17" for ::1 at 2016-12-23 08:27:29 -0600
+Processing by GladiatorsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O3QRiGKFhTW7PpooUip/sCIdc4N4dCTDq4qwCJAiZTku6x0mhwPNzEQHWoeHDCkTqxZ9gViVSYBiwKaNaY5ZMQ==", "gladiator"=>{"name"=>"Recruit 1", "fightStyle"=>"0", "str"=>"6", "dex"=>"18", "spd"=>"10", "con"=>"11", "chr"=>"11", "intl"=>"10", "birth(1i)"=>"2016", "birth(2i)"=>"12", "birth(3i)"=>"23", "firstfight(1i)"=>"2016", "firstfight(2i)"=>"12", "firstfight(3i)"=>"23", "death(1i)"=>"2016", "death(2i)"=>"12", "death(3i)"=>"23", "wounds"=>"0", "reputation"=>"0", "hitmod"=>"0", "strmod"=>"0"}, "commit"=>"Update Gladiator", "team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "gladiators" SET "name" = ?, "updated_at" = ? WHERE "gladiators"."id" = ?[0m  [["name", "Recruit 1"], ["updated_at", 2016-12-23 14:27:29 UTC], ["id", 17]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 12ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:27:29 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 115ms (Views: 95.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/18" for ::1 at 2016-12-23 08:29:11 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"18"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 18], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 123ms (Views: 100.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/18/edit" for ::1 at 2016-12-23 08:29:13 -0600
+Processing by GladiatorsController#edit as HTML
+  Parameters: {"team_id"=>"1", "id"=>"18"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 18], ["LIMIT", 1]]
+  Rendering gladiators/edit.html.erb within layouts/application
+  Rendered gladiators/_form.html.erb (5.5ms)
+  Rendered gladiators/edit.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 139ms (Views: 117.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:29:29 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 123ms (Views: 103.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:29:45 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 115ms (Views: 96.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/18" for ::1 at 2016-12-23 08:29:48 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"18"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 18], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 143ms (Views: 122.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/18" for ::1 at 2016-12-23 08:29:52 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qqa/Nyo/5vtKra2RLgyyTNWURKJDbSou7xDLBUnlF6Rm5Eh9+zeykiSl4oAZqsHETtqb+tTnfY8tS2boXHhdqw==", "team_id"=>"1", "id"=>"18"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 18]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 9ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:29:52 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 129ms (Views: 108.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/19" for ::1 at 2016-12-23 08:29:54 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"19"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 19], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 118ms (Views: 95.3ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/19" for ::1 at 2016-12-23 08:29:56 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2j79ZkU7LZsxNiL3KdqKQOiA9IR4onq8ldtyGSmut4UWfAoslDN58l8+beYefPnIc84r3O8oLR1XgN/0PDP9ig==", "team_id"=>"1", "id"=>"19"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 19], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 19]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 8ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:29:56 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 123ms (Views: 102.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/20" for ::1 at 2016-12-23 08:30:03 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"20"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 20], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 116ms (Views: 94.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/teams/1/gladiators/20" for ::1 at 2016-12-23 08:30:05 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dhxqc9GpNpCQzayRmYOzb/x11KfCErL7fhV6eBrKYri6Xp05AKFi+f7F44CuJcDnZzsL/1WY5Vq8TteVD1cotw==", "team_id"=>"1", "id"=>"20"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 20]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 7ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:30:06 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 116ms (Views: 95.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:30:38 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 135ms (Views: 105.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:30:50 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 142ms (Views: 101.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:31:04 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 116ms (Views: 96.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:31:26 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 135ms (Views: 102.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:32:41 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (54.2ms)
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `BackFill' for #<#<Class:0x95499c0>:0xa407c60>):
+    36: 
+    37: <br>
+    38: Backfill |
+    39: <%= link_to 'Backfill Team', BackFill(@team) %> | 
+    40: <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
+    41: <%= link_to 'Back', teams_path %>
+    42: 
+  
+app/views/teams/show.html.erb:39:in `_app_views_teams_show_html_erb___557166493_86008884'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1009.8ms)
+Started PUT "/__web_console/repl_sessions/be6e6e14f6aaa36d76a3f98164b366d1" for ::1 at 2016-12-23 08:32:58 -0600
+Started GET "/teams/1" for ::1 at 2016-12-23 08:33:31 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 121ms (Views: 95.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:33:36 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 2], ["dex", 10], ["spd", 11], ["con", 2], ["chr", 9], ["intl", 18], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:33:36 UTC], ["updated_at", 2016-12-23 14:33:36 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 2], ["dex", 9], ["spd", 16], ["con", 3], ["chr", 16], ["intl", 6], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:33:36 UTC], ["updated_at", 2016-12-23 14:33:36 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams
+Completed 302 Found in 12ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:33:36 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 118ms (Views: 98.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/3" for ::1 at 2016-12-23 08:33:39 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 3]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 115ms (Views: 95.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:33:43 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 112ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:33:45 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 121ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/30" for ::1 at 2016-12-23 08:34:28 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"30"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 30], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 139ms (Views: 93.6ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/teams/1/gladiators/30" for ::1 at 2016-12-23 08:34:33 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AJsoYeAlobxnCZP6Yn3eyjv0p9NEFssuRCxFhFD2CQLM2d8rMS311QkB3OtV261CoLp4i9OcnI+Gd+hpRWtDDQ==", "team_id"=>"1", "id"=>"30"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 30], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 30]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 8ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:34:33 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 122ms (Views: 102.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/31" for ::1 at 2016-12-23 08:34:35 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"31"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 31], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 127ms (Views: 105.4ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/teams/1/gladiators/31" for ::1 at 2016-12-23 08:34:37 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oVj3+owTBF3tBvs/yjWeqxbZw+9rhIc4/Xi4v5hDZ31tGgCwXRtQNIMOtC79k+0jjZcct/wO0Jk/IxVSjd4tcg==", "team_id"=>"1", "id"=>"31"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 31], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 31]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 9ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:34:37 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 134ms (Views: 113.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:34:42 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 122ms (Views: 102.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:34:48 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 8], ["dex", 14], ["spd", 2], ["con", 12], ["chr", 3], ["intl", 13], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:34:48 UTC], ["updated_at", 2016-12-23 14:34:48 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["fightStyle", 0], ["str", 1], ["dex", 9], ["spd", 15], ["con", 7], ["chr", 18], ["intl", 12], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:34:48 UTC], ["updated_at", 2016-12-23 14:34:48 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 16ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:34:48 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 114ms (Views: 94.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1/gladiators/32" for ::1 at 2016-12-23 08:35:54 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"32"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 32], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 145ms (Views: 93.6ms | ActiveRecord: 2.5ms)
+
+
+Started DELETE "/teams/1/gladiators/32" for ::1 at 2016-12-23 08:35:57 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"47BTFFtPT+JgH1uKPrN8f4yr8dVgYEkYIAZT8a9a5cgv8qReikcbiw4XFJsJFQ/3F+UujffqHrniXf4cusevxw==", "team_id"=>"1", "id"=>"32"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 32], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 32]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 9ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:35:57 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 115ms (Views: 95.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:36:06 -0600
+  
+SyntaxError (C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/teams_controller.rb:67: syntax error, unexpected ','
+        @team.gladiators.build(name:,'Recruit'+i.to_s)
+                                     ^
+C:/Users/Gurmal/Documents/GitHub/ArenaMasters/app/controllers/teams_controller.rb:67: syntax error, unexpected ')', expecting keyword_end):
+  
+app/controllers/teams_controller.rb:67: syntax error, unexpected ','
+app/controllers/teams_controller.rb:67: syntax error, unexpected ')', expecting keyword_end
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (998.3ms)
+Started GET "/teams/1" for ::1 at 2016-12-23 08:39:17 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 143ms (Views: 113.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/teams/1/gladiators/33" for ::1 at 2016-12-23 08:39:24 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"33"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 33], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 121ms (Views: 100.3ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/33" for ::1 at 2016-12-23 08:39:26 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6MQZdMU1flfwhrUjtxvrK/Sm2uslBDb1qZJrv7OPVpskhu4+FD0qPp6O+jKAvZijb+gFs7KOYVRrycZSphIclA==", "team_id"=>"1", "id"=>"33"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 33], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 33]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 9ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:39:26 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 115ms (Views: 93.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:39:28 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 114ms (Views: 93.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:39:30 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit0"], ["fightStyle", 0], ["str", 5], ["dex", 5], ["spd", 10], ["con", 3], ["chr", 6], ["intl", 17], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:39:30 UTC], ["updated_at", 2016-12-23 14:39:30 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit1"], ["fightStyle", 0], ["str", 15], ["dex", 15], ["spd", 7], ["con", 5], ["chr", 19], ["intl", 12], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:39:30 UTC], ["updated_at", 2016-12-23 14:39:30 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 14ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:39:30 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 113ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:39:55 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 140ms (Views: 112.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/teams/1/gladiators/17" for ::1 at 2016-12-23 08:40:01 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 113ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/17" for ::1 at 2016-12-23 08:40:03 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"T1ZMM4pP2/0Y8rt05HuNA5SVcBQkLfmy7M9NSJGtpIqDFLt5W0ePlHb69GXT3f6LD9uvTLOnrhMulOClhDDuhQ==", "team_id"=>"1", "id"=>"17"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 17], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 17]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 8ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:40:03 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (1.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 112ms (Views: 91.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/1/gladiators/34" for ::1 at 2016-12-23 08:40:05 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"34"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 34], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 111ms (Views: 90.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/teams/1/gladiators/34" for ::1 at 2016-12-23 08:40:07 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"tFHKAEy0BcQkG+zpdF0gd1OyCVPaxXa+QqnMzHYMbaB4Ez1KnbxRrUoTo/hD+1P/yPzWC01PIR+A8mEhY5Enrw==", "team_id"=>"1", "id"=>"34"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 34], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 34]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:40:07 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 121ms (Views: 100.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/35" for ::1 at 2016-12-23 08:40:08 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"35"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 35], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 119ms (Views: 97.7ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/35" for ::1 at 2016-12-23 08:40:10 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yKutKZnJ1+UigPRbB57lpN7fWxLAR6Zi0bUnQx5HujEE6VpjSMGDjEyIu0owOJYsRZGESlfN8cMT7oquC9rwPg==", "team_id"=>"1", "id"=>"35"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 35], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 35]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 9ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:40:10 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 119ms (Views: 98.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:40:12 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 116ms (Views: 95.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:40:15 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.0ms)
+
+
+  
+TypeError (no implicit conversion of Fixnum into String):
+  
+app/controllers/teams_controller.rb:67:in `+'
+app/controllers/teams_controller.rb:67:in `backfill'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (995.4ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:42:36 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.0ms)
+
+
+  
+TypeError (no implicit conversion of Fixnum into String):
+  
+app/controllers/teams_controller.rb:67:in `+'
+app/controllers/teams_controller.rb:67:in `backfill'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (1014.0ms)
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:43:19 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit 1"], ["fightStyle", 0], ["str", 17], ["dex", 18], ["spd", 17], ["con", 14], ["chr", 11], ["intl", 13], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:43:19 UTC], ["updated_at", 2016-12-23 14:43:19 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit 2"], ["fightStyle", 0], ["str", 6], ["dex", 12], ["spd", 20], ["con", 2], ["chr", 6], ["intl", 14], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:43:19 UTC], ["updated_at", 2016-12-23 14:43:19 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit 3"], ["fightStyle", 0], ["str", 11], ["dex", 6], ["spd", 10], ["con", 12], ["chr", 4], ["intl", 13], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:43:19 UTC], ["updated_at", 2016-12-23 14:43:19 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 42ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:43:19 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 114ms (Views: 94.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/36" for ::1 at 2016-12-23 08:43:23 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"36"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 36], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 114ms (Views: 93.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/teams/1/gladiators/36" for ::1 at 2016-12-23 08:43:25 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9Xk8K0dJcU+/D8xkqiGvc2/JY1+eDYDtuG2ua4YqmAs5O8thlkElJtEHg3Wdh9z79Ie8BwmH10x6NgOGk7fSBA==", "team_id"=>"1", "id"=>"36"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 36], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 36]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 8ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:43:25 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 123ms (Views: 101.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/37" for ::1 at 2016-12-23 08:43:27 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"37"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 37], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 115ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/37" for ::1 at 2016-12-23 08:43:30 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QgcCGQGnnSL5plzwFEK05JHdRjdHV17zHGhQC7ZvnEyORfVT0K/JS5euE+Ej5MdsCpOZb9DdCVLeM/3mo/LWQw==", "team_id"=>"1", "id"=>"37"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 37], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 37]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 9ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:43:30 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 117ms (Views: 97.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/gladiators/38" for ::1 at 2016-12-23 08:43:31 -0600
+Processing by GladiatorsController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"38"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 38], ["LIMIT", 1]]
+  Rendering gladiators/show.html.erb within layouts/application
+  Rendered gladiators/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 116ms (Views: 96.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/teams/1/gladiators/38" for ::1 at 2016-12-23 08:43:34 -0600
+Processing by GladiatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wq/08tCZXOHiCVvf138b3Pdbhg55ge7d2hdSvhi3PYoO7QO4AZEIiIwBFM7g2WhUbBVZVu4LuXwYTP9TDSp3hQ==", "team_id"=>"1", "id"=>"38"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT  "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ? AND "gladiators"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "gladiators" WHERE "gladiators"."id" = ?[0m  [["id", 38]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1/gladiators
+Completed 302 Found in 8ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/teams/1/gladiators" for ::1 at 2016-12-23 08:43:34 -0600
+Processing by GladiatorsController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering gladiators/index.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered gladiators/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 116ms (Views: 96.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:43:37 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 114ms (Views: 95.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/1/backfill" for ::1 at 2016-12-23 08:43:39 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mCACHE (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit 1"], ["fightStyle", 0], ["str", 17], ["dex", 20], ["spd", 10], ["con", 19], ["chr", 12], ["intl", 20], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:43:39 UTC], ["updated_at", 2016-12-23 14:43:39 UTC], ["hitmod", 2], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit 2"], ["fightStyle", 0], ["str", 7], ["dex", 14], ["spd", 2], ["con", 4], ["chr", 19], ["intl", 16], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:43:39 UTC], ["updated_at", 2016-12-23 14:43:39 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 1], ["name", "Recruit 3"], ["fightStyle", 0], ["str", 6], ["dex", 9], ["spd", 16], ["con", 1], ["chr", 3], ["intl", 17], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:43:39 UTC], ["updated_at", 2016-12-23 14:43:39 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/1
+Completed 302 Found in 16ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/teams/1" for ::1 at 2016-12-23 08:43:39 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 1]]
+  Rendered teams/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 112ms (Views: 92.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams" for ::1 at 2016-12-23 08:45:09 -0600
+Processing by TeamsController#index as HTML
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Rendered teams/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 110ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/teams/new" for ::1 at 2016-12-23 08:45:11 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  Rendered teams/_form.html.erb (1.0ms)
+  Rendered teams/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 135ms (Views: 116.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/teams" for ::1 at 2016-12-23 08:45:22 -0600
+Processing by TeamsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wPOsMJOBAYYzkhtV2DkQ4owHqBtvE+Spch0j9nvL1zY5Q4cgppnyphT3FhjK07SUly8rKgs9FYRnD5dinE1U9w==", "team"=>{"name"=>"Section 09"}, "commit"=>"Create Team"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "teams" ("name", "accountbalance", "reputation", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Section 09"], ["accountbalance", 1000], ["reputation", 0], ["created_at", 2016-12-23 14:45:22 UTC], ["updated_at", 2016-12-23 14:45:22 UTC]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/4
+Completed 302 Found in 8ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/teams/4" for ::1 at 2016-12-23 08:45:22 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.5ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  Rendered teams/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 113ms (Views: 93.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/4/backfill" for ::1 at 2016-12-23 08:45:24 -0600
+Processing by TeamsController#backfill as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 1"], ["fightStyle", 0], ["str", 17], ["dex", 15], ["spd", 3], ["con", 6], ["chr", 16], ["intl", 5], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 2"], ["fightStyle", 0], ["str", 6], ["dex", 4], ["spd", 17], ["con", 1], ["chr", 4], ["intl", 19], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 3"], ["fightStyle", 0], ["str", 19], ["dex", 20], ["spd", 4], ["con", 15], ["chr", 6], ["intl", 8], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 2], ["strmod", 2]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 4"], ["fightStyle", 0], ["str", 18], ["dex", 3], ["spd", 14], ["con", 18], ["chr", 9], ["intl", 2], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 5"], ["fightStyle", 0], ["str", 6], ["dex", 5], ["spd", 2], ["con", 10], ["chr", 14], ["intl", 9], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 6"], ["fightStyle", 0], ["str", 4], ["dex", 12], ["spd", 8], ["con", 3], ["chr", 5], ["intl", 20], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 7"], ["fightStyle", 0], ["str", 18], ["dex", 18], ["spd", 6], ["con", 10], ["chr", 4], ["intl", 8], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 8"], ["fightStyle", 0], ["str", 2], ["dex", 6], ["spd", 6], ["con", 19], ["chr", 10], ["intl", 9], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 9"], ["fightStyle", 0], ["str", 15], ["dex", 16], ["spd", 10], ["con", 13], ["chr", 16], ["intl", 6], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 0], ["strmod", 0]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "gladiators" ("team_id", "name", "fightStyle", "str", "dex", "spd", "con", "chr", "intl", "birth", "wounds", "reputation", "created_at", "updated_at", "hitmod", "strmod") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["team_id", 4], ["name", "Recruit 10"], ["fightStyle", 0], ["str", 1], ["dex", 19], ["spd", 4], ["con", 13], ["chr", 13], ["intl", 19], ["birth", Fri, 23 Dec 2016], ["wounds", 0], ["reputation", 0], ["created_at", 2016-12-23 14:45:24 UTC], ["updated_at", 2016-12-23 14:45:24 UTC], ["hitmod", 2], ["strmod", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/teams/4
+Completed 302 Found in 34ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/teams/4" for ::1 at 2016-12-23 08:45:25 -0600
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTeam Load (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mGladiator Load (0.0ms)[0m  [1m[34mSELECT "gladiators".* FROM "gladiators" WHERE "gladiators"."team_id" = ?[0m  [["team_id", 4]]
+  Rendered teams/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 112ms (Views: 93.2ms | ActiveRecord: 0.0ms)
+
+
