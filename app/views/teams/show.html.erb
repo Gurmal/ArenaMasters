@@ -25,7 +25,26 @@
   </thead>
 
   <tbody>
-    <% @team.gladiators.each do |gladiator| %>
+    <% @team.gladiators.where(death: nil).each do |gladiator| %>
+      <tr>
+        <td><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
+        <td><%= gladiator.reputation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+<h3>Gladiators recently Deceased<h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Reputation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.gladiators.where.not(death: nil).each do |gladiator| %>
       <tr>
         <td><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
         <td><%= gladiator.reputation %></td>
@@ -38,6 +57,7 @@
 Backfill |
 <%= link_to 'Backfill Team', backfill_path(@team) %> | 
 <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
+Show Gladiator History |
 <%= link_to 'Back', teams_path %>
 
 <br><br>

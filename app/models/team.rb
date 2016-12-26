@@ -4,7 +4,6 @@ class Team < ApplicationRecord
   
   before_create :setvars
 
-
   private
   def setvars
       self.accountbalance = 1000

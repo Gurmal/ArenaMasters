@@ -29,8 +29,19 @@ class Gladiator < ApplicationRecord
     _hp = (10 + self.con) - self.wounds
   end
 
-  def cleanup
+  def setFirstFight
+    self.firstfight = Time.new
+    self.save
+  end
 
+  def addWound
+    self.wounds += 1
+    self.save
+  end
+
+  def killMe
+    self.death = Time.new
+    self.save
   end
 
   def rollInitiative

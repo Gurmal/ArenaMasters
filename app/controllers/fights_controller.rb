@@ -5,7 +5,7 @@ class FightsController < ApplicationController
   end
 
   def run
-    $loglevel = 4
+    $loglevel = 3
     @log=""
     @fighters = @fight.fight_items
      @log << @fighters.class.to_s+'<br>' if $loglevel >= 5
@@ -20,11 +20,11 @@ class FightsController < ApplicationController
     #fight
     @fightRound = 0
 
-    while (@fighters[0].hp > 2) && (@fighters[1].hp > 2) && (@fighters[0].hp != @fighters[1].hp)
+    while @fighters.all? {|x| x.hp >=2 } || @fighters.all? {|x| x.hp == @fighters[0].hp}
       @fightRound+=1
       @log << '<b>Round: '+@fightRound.to_s+'</b><br>' if $loglevel >= 2
-      attack(@fighters[0],@fighters[1])
-      attack(@fighters[1], @fighters[0])
+      attack(@fighters[0],@fighters[1]) if @fighters[0].hp > 0
+      attack(@fighters[1], @fighters[0]) if @fighters[1].hp > 0
       @log << @fighters[0].name+'('+@fighters[0].hp.to_s+') '+@fighters[1].name+'('+@fighters[1].hp.to_s+')<br>' if $loglevel >= 3
     end
 
@@ -43,11 +43,12 @@ class FightsController < ApplicationController
     end
     
     #dole out wounds
-    @fighters.each { |x| x.gladiator.cleanup
-    @log << '<font color="red">'+x.name+' has died from his wounds.</font><br>' if x.hp <= 0 } if $loglevel >= 1
-    
+    @fighters.each { |x| @log << x.cleanupFight }
+   
+    #don't know 
     logger.info(@log)
-	@fight.log = @log
+    #save the log
+	  @fight.log = @log
     @fight.save
 
     redirect_to event_fight_path(@event,@fight), notice: 'Fight Complete!'
@@ -62,10 +63,12 @@ class FightsController < ApplicationController
   	@event = @fight.event
   end
 
-	#used by run
+	#attack used by run
   def attack(attacker,defender)
     hitDie = Dice.new
     atkDie = Dice.new(4)
+    _hitVerb = ['hits', 'smacks','cuts', 'knocks', 'slices', 'impales']
+    _critHitVerb = ['blasts', 'bludgeons', 'guts']
     @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
     #attackers 1d20 + dexterity modifier against defenders spd
       if (hitDie + attacker.gladiator.hitmod) < 4
@@ -73,11 +76,11 @@ class FightsController < ApplicationController
       elsif (hitDie + attacker.gladiator.hitmod) > 18
         damage = (4 + attacker.gladiator.strmod)
         defender.hp -= damage
-        @log << attacker.name+' criticaly hits '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
+        @log << attacker.name+' <i>criticaly</i> '+_critHitVerb.sample+' '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
       else
         damage = (atkDie + attacker.gladiator.strmod)
         defender.hp -= damage
-        @log << attacker.name+' hits '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
+        @log << attacker.name+' '+_hitVerb.sample+' '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
       end
       @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
   end

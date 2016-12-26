@@ -64,11 +64,12 @@ class EventsController < ApplicationController
   def buildSchedule
     #take all the gladiators and randomly assign them into fights
     #don't make gladiators from the same team fight each other
-    #use a reserve team to solve for imblances
+    #use a reserve team to solve for imblances (not implemented)
 
     _fightflag = false
-    _fighters = Gladiator.all.shuffle
+    _fighters = Gladiator.where(death: nil).shuffle
     _i = 0
+    #using 100 as a cheap limit on finding a fighter could break for large fights
     while _i < 100 and _fighters.count > 0 do
       if not(_fightflag)
         _fight = @event.fights.create(sequence: _i)
