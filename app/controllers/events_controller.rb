@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :buildSchedule]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :buildSchedule, :run]
 
   # GET /events
   # GET /events.json
@@ -94,10 +94,12 @@ class EventsController < ApplicationController
   end
 
   def run()
-    puts @name + " has begun!" if $loglevel >= 1
-    @fightSchedule.each { |x| puts "\n***Fight "+@FightNum.to_s+"*** " +x.headline if $loglevel >=1
-    @FightNum+=1
-    x.run }
+    logger.info @event.name + ' has begun!'
+    @event.fights.each { |x| x.run }
+    @event.runDate = Time.new
+    @event.save
+
+    redirect_to @event, notice: 'Fights Run.'
   end
 
   private

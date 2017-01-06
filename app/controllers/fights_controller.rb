@@ -5,7 +5,12 @@ class FightsController < ApplicationController
   end
 
   def run
+    #this method currently active moving to the model as I get time so that it can be run via the events controller as well.
     $loglevel = 3
+    if true 
+      @fight.run
+    else
+  
     @log=""
     @fighters = @fight.fight_items
      @log << @fighters.class.to_s+'<br>' if $loglevel >= 5
@@ -45,11 +50,13 @@ class FightsController < ApplicationController
     #dole out wounds
     @fighters.each { |x| @log << x.cleanupFight }
    
-    #don't know 
+    #don't know puts the log into the server console at the info level
     logger.info(@log)
-    #save the log
+    
+    #save the log to the fight
 	  @fight.log = @log
     @fight.save
+    end
 
     redirect_to event_fight_path(@event,@fight), notice: 'Fight Complete!'
   end

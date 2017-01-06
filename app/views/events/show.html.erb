@@ -22,16 +22,18 @@
   </thead>
 
   <tbody>
-    <% @event.fights.each do |fight| %>
+    <% @event.fights.sort_by(&:sequence).each do |fight| %>
       <tr>
       <td><%= link_to fight.id, event_fight_path(@event,fight)%></td>
-      <td><% fight.gladiators.each do |fighter| %>
-        (<%= fighter.team.name %>)
-        <%= link_to fighter.name, team_gladiator_path(fighter.team, fighter) %>
-        	<% end %>
+      <td><% fight.fight_items.each do |fighter| %>
+      <%= if fighter.died then '<font color=red>'.html_safe end %>
+          (<%= fighter.gladiator.team.name %>)
+          <%= link_to fighter.name, team_gladiator_path(fighter.gladiator.team, fighter.gladiator) %>
+          <%= if fighter.died then '(died)</font>'.html_safe end %>
+        <% end %>
         </td>
         <td><%= fight.winner %></td>
-        <td>0</td>
+        <td><%= fight.rounds%></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +41,5 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Build Schedule' , buildSchedule_path(@event) %> |
+<%= link_to 'Run' , run_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

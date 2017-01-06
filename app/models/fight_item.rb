@@ -12,12 +12,15 @@ class FightItem < ApplicationRecord
   def cleanupFight
     _log = ""
     if self.hp < 0
-      self.gladiator.killMe if self.hp < 0
+      self.gladiator.killMe
+      self.died = :true
       _log = '<font color="red">'+self.gladiator.name+' has died from his wounds.</font><br>'
     elsif self.hp < 2
+      self.wounded = :true
       self.gladiator.addWound
       _log = '<font color="red">'+self.gladiator.name+' has been geviously wounded and is carried from the arena.</font><br>'
     end
+    self.save
     return _log
   end
 

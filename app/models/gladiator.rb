@@ -1,4 +1,4 @@
-require_relative 'Dice'
+#require 'Dice'  -- auto included by Rails
 $loglevel = 1
 
 class Gladiator < ApplicationRecord
@@ -7,8 +7,6 @@ class Gladiator < ApplicationRecord
   has_many :fights, through: :fight_items
   
   before_create :setstats
-
-
 
 
   def setStyle(fightStyle)
@@ -47,13 +45,14 @@ class Gladiator < ApplicationRecord
   def rollInitiative
     _initiative = rand(20)+1
     _initiative += 2 if self.spd.to_i >18
+    logger.debug "coming through rollInitiative #{_initiative}"
     return _initiative
   end
 
 
 private
   def setstats
-    statdie = Dice.new(20)
+    statdie = Dice.new(6,3)
     _str = statdie.roll
     self.str = _str
     _dex = statdie.roll
