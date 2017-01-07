@@ -26,6 +26,7 @@ def run
 	    #fight
 	    @fightRound = 0
 
+	    #continue if everyone is above 2 or not equal (so we can declair a winner)
 	    while @fighters.all? {|x| x.hp >=2 } || @fighters.all? {|x| x.hp == @fighters[0].hp}
 	      @fightRound+=1
 	      @log << '<b>Round: '+@fightRound.to_s+'</b><br>' if $loglevel >= 2
@@ -34,19 +35,17 @@ def run
 	      @log << @fighters[0].name+'('+@fighters[0].hp.to_s+') '+@fighters[1].name+'('+@fighters[1].hp.to_s+')<br>' if $loglevel >= 3
 	    end
 
-	    #declare winner
+	    #declare winner  (this needs to switch over to using the won boolean on fight items)
 	    maxFighter = @fighters.max_by {|x| x.hp}
 	    @log << '<font color="green">'+maxFighter.name+' has won the match.</font><br>' if $loglevel >= 1
 
+			#needs change to sort array, declair first winner rest loosers
 		    if @fighters[0].hp > @fighters[1].hp
-		      @fight.winner = @fighters[0].name
-		      @fighters[0].gladiator.reputation += 1
-		      @fighters[1].gladiator.reputation -= 1
+	    		cleanWinner(@fighters[0],@fighters[1])
 		    else
-		      @fight.winner = @fighters[1].name
-		      @fighters[1].gladiator.reputation += 1
-		      @fighters[0].gladiator.reputation -= 1
+		      	cleanWinner(@fighters[1],@fighters[0])
 		    end
+		    @fighters.each{|x| x.save}
 	    #dole out wounds
 	    @fighters.each { |x| @log << x.cleanupFight }
    	end
@@ -84,4 +83,13 @@ def run
       @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
   end
 
+  def cleanWinner(aWinner,aLoser)
+	#issue 12 needs reputation fixes		
+      @fight.winner = aWinner.name
+      aWinner.won = true
+      aWinner.gladiator.reputation += 1
+      aWinner.gladiator.exp += 1
+      aLoser.gladiator.reputation -= 1
+      aLoser.gladiator.exp += 1
+  end
 end

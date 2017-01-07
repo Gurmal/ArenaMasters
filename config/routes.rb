@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'events/:id/run', to: 'events#run', as: 'run_event'
   get 'fights/:id/run', to: 'fights#run', as: 'run_fight'
   get 'teams/:id/backfill', to: 'teams#backfill', as: 'backfill'
+  get 'teams/backfill', to: 'teams#backfillAll', as: 'backfillAll'
+  get 'teams/showInactive', to: 'teams#showInActive', as: 'showInActive'
+
 
   resources :events do
   	resources :fights, only: [:show]

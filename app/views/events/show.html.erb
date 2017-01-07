@@ -26,10 +26,11 @@
       <tr>
       <td><%= link_to fight.id, event_fight_path(@event,fight)%></td>
       <td><% fight.fight_items.each do |fighter| %>
-      <%= if fighter.died then '<font color=red>'.html_safe end %>
+
           (<%= fighter.gladiator.team.name %>)
           <%= link_to fighter.name, team_gladiator_path(fighter.gladiator.team, fighter.gladiator) %>
-          <%= if fighter.died then '(died)</font>'.html_safe end %>
+          <%= if fighter.died then '<font color=darkred>(died)</font>'.html_safe end %>
+          <%= if fighter.wounded then '<font color=red>(wounded)</font>'.html_safe end %>
         <% end %>
         </td>
         <td><%= fight.winner %></td>

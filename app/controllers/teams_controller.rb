@@ -4,12 +4,17 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.where(active: true)
+    
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+  end
+
+  def showInActive
+    @teams = Team.where(active: false) + Team.where(active: nil)
   end
 
   # GET /teams/new
@@ -61,17 +66,24 @@ class TeamsController < ApplicationController
     end
   end
 
+  #used to populate a team back up to 10 gladiators
   def backfill
-    i = 0
-    while i < (10 - @team.gladiators.count)
-        @team.gladiators.build(name: 'Recruit '+(i+1).to_s)
-        i+=1
-    end
-    @team.save
+    @team.backfill
 
     respond_to do |format|
       format.html { redirect_to @team, notice: 'Team populated.' }
       format.json { render json: @team.errors, status: :unprocessable_entity }
+    end
+  end
+
+  #fills all active teams up to full
+  def backfillAll
+     _teams = Team.where(active: true)
+    _teams.each{|x| x.backfill}
+    
+      respond_to do |format|
+        format.html { redirect_to teams_url, notice: 'Teams topped off.' }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
     end
   end
 

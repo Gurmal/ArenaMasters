@@ -6,6 +6,9 @@ class FightItem < ApplicationRecord
 	self.gladiator.setFirstFight if self.gladiator.firstfight.nil?
   self.initiative = self.gladiator.rollInitiative
 	self.hp = self.gladiator.hp
+  self.won = false
+  self.died = false
+  self.wounded = false
 	self.save
   end
 

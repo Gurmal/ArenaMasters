@@ -8,26 +8,30 @@
 Event: <%= @event.name %><br>
 Fight ID: <%= @fight.id.to_s %><br>
 Sequence: <%= @fight.sequence %><br>
-<% unless @fight.winner.nil? %>
-<%='Winner: '+@fight.winner %><br>
-<%end%>
+
 </head>
 <body>
 <h1>Fighters in Fight</h1>
 <table>
   <thead>
     <tr>
+      <th></th>
+      <th></th>
       <th>Name (Rep)</th>
       <th>Team</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @fight.gladiators.each do |gladiator| %>
+    <% @fight.fight_items.each do |fighter| %>
       <tr>
-        <td><%= link_to gladiator.name, team_gladiator_path(gladiator.team,gladiator) %>
-        (<%= gladiator.reputation %>)</td>
-        <td><%= gladiator.team.name %></td>
+      <td><%= if fighter.won then '<font color=green>won</font>'.html_safe end %></td>
+      <td><%= if fighter.died then '<font color=darkred>died</font>'.html_safe end %>
+          <%= if fighter.wounded then '<font color=red>wounded</font>'.html_safe end %></td>
+        <td><%= link_to fighter.gladiator.name, team_gladiator_path(fighter.gladiator.team,fighter.gladiator) %>
+        (<%= fighter.gladiator.reputation %>)</td>
+        <td><%= fighter.gladiator.team.name %></td>
+          
       </tr>
     <% end %>
   </tbody>

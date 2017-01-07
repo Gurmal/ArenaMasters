@@ -84,5 +84,6 @@ private
     self.fightStyle = 0
     self.wounds = 0
     self.reputation = 0
+    self.exp = 0
   end
 end
