@@ -34,12 +34,14 @@
   </tbody>
   </table>
 
-<h3>Gladiators recently Deceased<h3>
+<h3>Gladiators recently Deceased</h3>
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Reputation</th>
+      <th>Death</th>
+      <th>Last Fight</th>
     </tr>
   </thead>
 
@@ -48,6 +50,8 @@
       <tr>
         <td><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
         <td><%= gladiator.reputation %></td>
+        <td><%= gladiator.death %></td>
+        <td><%= link_to gladiator.fights.last.event.name, event_fight_path(gladiator.fights.last.event, gladiator.fights.last) %></td>
       </tr>
     <% end %>
   </tbody>

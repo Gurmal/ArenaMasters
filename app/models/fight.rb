@@ -124,7 +124,9 @@ def run
       aWinner.won = true
       aWinner.gladiator.reputation += 1
       aWinner.gladiator.exp += 1
+      aWinner.gladiator.save
       aLoser.gladiator.reputation -= 1
       aLoser.gladiator.exp += 1
+      aLoser.gladiator.save
   end
 end

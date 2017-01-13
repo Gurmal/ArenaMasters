@@ -7,29 +7,57 @@
 
 <h1><%= @gladiator.name %></h1>
 
+
 <p>
+  <strong>Fight style:</strong>
+  <%= @gladiator.fightStyle %>
+<br>
   <strong>Reputation:</strong>
   <%= @gladiator.reputation %>
+  <br>
+  <strong>Experience:</strong>
+<%= @gladiator.exp %>
 </p>
 
 <p>
-  <strong>Str:</strong>
-  <%= @gladiator.str %>
+<h2>Core Stats</h2>
+<table>
+  <tr>
+    <td><strong>Str:</strong></td>
+    <td><%= @gladiator.str %></td>
+    <td>+</td>
+  </tr>
 
-  <strong>Dex:</strong>
-  <%= @gladiator.dex %>
+  <tr>
+    <td><strong>Dex:</strong></td>
+    <td><%= @gladiator.dex %></td>
+    <td>+</td>
+  </tr>
 
-  <strong>Spd:</strong>
-  <%= @gladiator.spd %>
+  <tr>
+    <td><strong>Spd:</strong></td>
+    <td><%= @gladiator.spd %></td>
+    <td>+</td>
+  </tr>
 
-  <strong>Con:</strong>
-  <%= @gladiator.con %>
+  <tr>
+    <td><strong>Con:</strong></td>
+    <td><%= @gladiator.con %></td>
+    <td>+</td>
+  </tr>
 
-  <strong>Chr:</strong>
-  <%= @gladiator.chr %>
+  <tr>
+    <td><strong>Chr:</strong></td>
+    <td><%= @gladiator.chr %></td>
+    <td>+</td>
+  </tr>
 
-  <strong>Intl:</strong>
-  <%= @gladiator.intl %>
+  <tr>
+    <td><strong>Intl:</strong></td>
+    <td><%= @gladiator.intl %></td>
+    <td>+</td>
+  </tr>
+</table>
 </p>
 <p>
   <strong>Hp:</strong>
@@ -44,10 +72,7 @@
   <strong>Strmod:</strong>
   <%= @gladiator.strmod %>
 </p>
-<p>
-  <strong>Fight style:</strong>
-  <%= @gladiator.fightStyle %>
-</p>
+
 <p>
   <strong>Birth:</strong>
   <%= @gladiator.birth %>
@@ -64,8 +89,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Reputation</th>
+      <th>ID</th>
+      <th>Winner</th>
       <th>Rounds</th>
     </tr>
   </thead>

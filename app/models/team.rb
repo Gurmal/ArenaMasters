@@ -10,7 +10,8 @@ class Team < ApplicationRecord
     #count only the live gladiators
     _liveTeam = self.gladiators.select{|x| x.death.nil?}
     while i < (10 - _liveTeam.count)
-        self.gladiators.build(name: 'Recruit '+(i+1).to_s)
+      nameslist = ['Abner','Bob', 'Cindy', 'Dwane', 'Eli' , 'Frank', 'Gwen', 'Hodor', 'Ileen','Jane', 'Kas']
+        self.gladiators.build(name: nameslist.sample+rand(999).to_s)
         i+=1
     end
     self.save
