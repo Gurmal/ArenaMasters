@@ -11,6 +11,7 @@ class GladiatorsController < ApplicationController
   # GET /gladiators/1
   # GET /gladiators/1.json
   def show
+    @myfights = @gladiator.fights
   end
 
   # GET /gladiators/new
@@ -66,6 +67,7 @@ class GladiatorsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_gladiator
       @gladiator = @team.gladiators.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,3 +1,8 @@
+<%= link_to 'Edit', edit_team_gladiator_path(@team, @gladiator) %> |
+<%= link_to 'Destroy', team_gladiator_path(@team,@gladiator), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', :back %> |
+<%= link_to 'Team', @team %>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= @gladiator.name %></h1>
@@ -30,6 +35,9 @@
   <strong>Hp:</strong>
   <%= @gladiator.hp %>
 
+<strong>Wounds:</strong>
+  <%= @gladiator.wounds %>
+
   <strong>Hitmod:</strong>
   <%= @gladiator.hitmod %>
 
@@ -50,10 +58,28 @@
   <strong>Death:</strong>
   <%= @gladiator.death %>
 </p>
-<p>
-  <strong>Wounds:</strong>
-  <%= @gladiator.wounds %>
-</p>
+
+
+<h2>My Fights</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Reputation</th>
+      <th>Rounds</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @myfights.each do |fight| %>
+      <tr>
+        <td><%= link_to fight.id, event_fight_path(fight.event, fight) %></td>
+        <td><%= fight.winner %></td>
+        <td><%= fight.rounds %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
 
 <%= link_to 'Edit', edit_team_gladiator_path(@team, @gladiator) %> |
 <%= link_to 'Destroy', team_gladiator_path(@team,@gladiator), method: :delete, data: { confirm: 'Are you sure?' } %> |
