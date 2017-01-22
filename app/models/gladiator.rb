@@ -1,4 +1,5 @@
 #require 'Dice'  -- auto included by Rails
+#loglevel legacy from ruby still used some but logger is replacing slowly
 $loglevel = 1
 
 class Gladiator < ApplicationRecord
@@ -45,7 +46,7 @@ class Gladiator < ApplicationRecord
   def rollInitiative
     _initiative = rand(20)+1
     _initiative += 2 if self.spd.to_i >18
-    logger.debug "coming through rollInitiative #{_initiative}"
+    logger.debug "coming through rollInitiative id:#{self.id} init:#{_initiative}"
     return _initiative
   end
 

@@ -1,15 +1,46 @@
+require 'FightState'
 class FightItem < ApplicationRecord
   belongs_to :fight
   belongs_to :gladiator
+  attr_accessor  :rState
   
   def setupFight
-	self.gladiator.setFirstFight if self.gladiator.firstfight.nil?
-  self.initiative = self.gladiator.rollInitiative
-	self.hp = self.gladiator.hp
-  self.won = false
-  self.died = false
-  self.wounded = false
-	self.save
+    #initialize the Fight Item with the gladiator's information
+  	self.gladiator.setFirstFight if self.gladiator.firstfight.nil? #consider moving this to cleanup - allowing no for no gladiator changes until end of fight
+    self.initiative = self.gladiator.rollInitiative
+  	self.hp = self.gladiator.hp
+    self.won = false
+    self.died = false
+    self.wounded = false
+  	self.save
+    
+    #memory only variables for life of fight - not being stored to the database
+    #initialize the round array with the first action array which contains a fight state that is the starting condition of the fighter
+    #use the zero position for initialization - hence round 1 will be stored in array 1
+    @rState = Array.new  #RoundState
+    as = Array.new #ActionState
+    as << FightState.new
+    as.last.setPosition(0,0,0)
+    as.last.hp = self.hp
+    @rState << as
+
+  end
+
+  def startRound
+    #add another action array to the round state array with a copy of the last fightstate as the first element of the action array
+    as = Array.new #ActionState
+    as << @rState.last.last.dup #duplicate the last action of the last round as the zero state of the new action array
+    @rState << as #add the action array as a new element of the round array
+    return @rState.last.last #return the most recent fightstate
+  end
+
+  def addAction(atk,dmg)
+    #add another action to the acction array with a copy of the last fightstate as the first element of the action array
+    action = @rState.last.last.dup #duplicate the last action of the last round as the starting new action item
+    action.atk = atk
+    action.dmg = dmg
+    @rState.last << action #push it onto the state array
+    return @rState.last.last #return the most recent fightstate (this action)
   end
 
   def cleanupFight

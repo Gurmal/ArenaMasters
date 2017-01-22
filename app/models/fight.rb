@@ -5,12 +5,12 @@ class Fight < ApplicationRecord
 
 def run
 	#This runs the fight allowing the fighters to attack each other until there is a winner.
-    $loglevel = 3
+    $loglevel = 2
     @fight = self
     @log=""
     @fighters = @fight.fight_items
     if @fighters.count < 2
-    		#this shouldn't happen but right now the scheduler will leave a single fighter in a fight.  If it does happen handle it gracefully.
+    		#ISSUE - this shouldn't happen but right now the scheduler will leave a single fighter in a fight.  If it does happen handle it gracefully.
     		@log << 'Only one fighter, ending fight'
     		@fight.winner = @fighters[0].name
     		@fighters[0].gladiator.reputation += 1
@@ -26,10 +26,15 @@ def run
 	    #fight
 	    @fightRound = 0
 
-	    #continue if everyone is above 2 or not equal (so we can declair a winner)
+	    #Main action loop
+	    #continues if everyone is above 2 or HP not equal (so we don't tie and can have a winner)
 	    while @fighters.all? {|x| x.hp >=2 } || @fighters.all? {|x| x.hp == @fighters[0].hp}
 	      @fightRound+=1
+	      @fighters.each { |x| x.startRound} #set the initial Round State for each fighter based on prior round
+
+
 	      @log << '<b>Round: '+@fightRound.to_s+'</b><br>' if $loglevel >= 2
+	      @fighters.each { |x| @log << x.name+':'+x.rState.last.last.atk.to_s+':'+x.rState.last.last.dmg.to_s+'<br>'} if $loglevel >= 3
 	      attack(@fighters[0],@fighters[1]) if @fighters[0].hp > 0
 	      attack(@fighters[1], @fighters[0]) if @fighters[1].hp > 0
 	      @log << @fighters[0].name+'('+@fighters[0].hp.to_s+') '+@fighters[1].name+'('+@fighters[1].hp.to_s+')<br>' if $loglevel >= 3
@@ -62,60 +67,31 @@ def run
   def attack(attacker,defender)
     hitDie = Dice.new
     atkDie = Dice.new(4)
-    _hitVerb = ['hits', 'smacks','cuts', 'knocks', 'slices', 'impales']
-    _critHitVerb = ['blasts', 'bludgeons', 'guts', 'dismembers']
+    _hitVerb = ['hits', 'smacks','cuts', 'knocks', 'slices', 'gouges']
+    _critHitVerb = ['blasts', 'bludgeons', 'guts', 'dismembers', 'impales']
+    _bodypart = ['arm', 'leg', 'shoulder', 'side', 'back', 'hand', 'foot', 'face', 'thigh', 'knee', 'ear']
     @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
     #attackers 1d20 + dexterity modifier against defenders spd
-      if (hitDie + attacker.gladiator.hitmod) < 4
+      if (hitDie + attacker.gladiator.hitmod) < 4 #Miss
         @log<< attacker.name+' misses '+defender.name+'.<br>' if $loglevel >= 2
-      elsif (hitDie + attacker.gladiator.hitmod) > 18
+        attacker.addAction(0,0)
+      elsif (hitDie + attacker.gladiator.hitmod) > 18 #Crit
         damage = (4 + attacker.gladiator.strmod)
         defender.hp -= damage
+        attacker.addAction(2,damage)
         @log << attacker.name+' <i>criticaly</i> '+_critHitVerb.sample+' '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
-      else
+      else #normal
         damage = (atkDie + attacker.gladiator.strmod)
         defender.hp -= damage
-        @log << attacker.name+' '+_hitVerb.sample+' '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
+        attacker.addAction(1,damage)
+        @log << attacker.name+' '+_hitVerb.sample+' '+defender.name+' in the '+_bodypart.sample+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
       end
       @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
   end
 
-  def attack2(attacker,defender)
-  	#where I'm planning out the new attack formula mechanics and leverage of fight styles.
-    hitDie = Dice.new
-    atkDie = Dice.new(4)
-    aHitm = attacker.gladiator.hitmod
-    aStrm = attacker.gladiator.strmod
-
-    _hitVerb = ['hits', 'smacks','cuts', 'knocks', 'slices', 'impales']
-    _critHitVerb = ['blasts', 'bludgeons', 'guts']
-
-    @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
-    
-    #attackers 1d20 + dexterity modifier against defenders spd
 
 
-	#roll to hit
-
-	#crit?
-
-	#final damage
-
-
-
-      if (hitDie + attacker.gladiator.hitmod) < 4
-        @log<< attacker.name+' misses '+defender.name+'.<br>' if $loglevel >= 2
-      elsif (hitDie + aHitm) > 18
-        damage = (4 + aStrm)
-        defender.hp -= damage
-        @log << attacker.name+' <i>criticaly</i> '+_critHitVerb.sample+' '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
-      else
-        damage = (atkDie + attacker.gladiator.strmod)
-        defender.hp -= damage
-        @log << attacker.name+' '+_hitVerb.sample+' '+defender.name+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
-      end
-      @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
-  end
+ 
 
   def cleanWinner(aWinner,aLoser)
 	#issue 12 needs reputation fixes
