@@ -15,6 +15,10 @@ class Gladiator < ApplicationRecord
     self.save
   end
 
+  def getStyleName
+      FightStyle.find(fightStyle).name
+  end
+
   def setName(name)
     self.name = name
     self.save

@@ -1,0 +1,2 @@
+class FightStyle < ApplicationRecord
+end

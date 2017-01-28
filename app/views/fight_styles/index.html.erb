@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fight Styles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fight_styles.each do |fight_style| %>
+      <tr>
+        <td><%= fight_style.name %></td>
+        <td><%= fight_style.active %></td>
+        <td><%= link_to 'Show', fight_style %></td>
+        <td><%= link_to 'Edit', edit_fight_style_path(fight_style) %></td>
+        <td><%= link_to 'Destroy', fight_style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fight Style', new_fight_style_path %>

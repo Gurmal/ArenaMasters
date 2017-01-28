@@ -3,11 +3,16 @@
 <h1>Teams</h1>
 
 <table>
+  <style>
+    table, th, td {
+        text-align:right;
+    }
+  </style>
   <thead>
     <tr>
-      <th>Name</th>
+      <th style="text-align: left">Name</th>
       <th>Size</th>
-      <th>Accountbalance</th>
+      <th>balance</th>
       <th>Reputation</th>
       <th>Teamid</th>
       <th colspan="2">Actions</th>
@@ -17,8 +22,8 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= link_to team.name, team %></td>
-        <td><%= team.gladiators.where(death: nil).count %><td>
+        <td style="text-align: left"><%= link_to team.name, team %></td>
+        <td><%= team.gladiators.where(death: nil).count %></td>
         <td><%= team.accountbalance %></td>
         <td><%= team.reputation %></td>
         <td><%= team.id %></td>

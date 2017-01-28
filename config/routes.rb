@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fight_styles
   get 'fights/show'
 
   get 'events/:id/buildSchedule', to: 'events#buildSchedule', as: 'buildSchedule'

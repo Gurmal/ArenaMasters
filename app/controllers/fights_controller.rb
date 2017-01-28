@@ -6,9 +6,12 @@ class FightsController < ApplicationController
 
   def run
     $loglevel = 3
-    @fight.run
-
-    redirect_to event_fight_path(@event,@fight), notice: 'Fight Complete!'
+    if @fight.complete then
+      redirect_to event_fight_path(@event,@fight), notice: 'Fight alredy ran.'      
+    else
+      @fight.run
+      redirect_to event_fight_path(@event,@fight), notice: 'Fight Complete!'
+    end
   end
 
 

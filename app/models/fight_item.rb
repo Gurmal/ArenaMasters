@@ -5,14 +5,15 @@ class FightItem < ApplicationRecord
   attr_accessor  :rState
   
   def setupFight
+    _log=""
     #initialize the Fight Item with the gladiator's information
-  	self.gladiator.setFirstFight if self.gladiator.firstfight.nil? #consider moving this to cleanup - allowing no for no gladiator changes until end of fight
     self.initiative = self.gladiator.rollInitiative
   	self.hp = self.gladiator.hp
     self.won = false
     self.died = false
     self.wounded = false
   	self.save
+    _log = self.gladiator.name+' fights with a '+self.gladiator.getStyleName+' style.<br>'
     
     #memory only variables for life of fight - not being stored to the database
     #initialize the round array with the first action array which contains a fight state that is the starting condition of the fighter
@@ -23,6 +24,8 @@ class FightItem < ApplicationRecord
     as.last.setPosition(0,0,0)
     as.last.hp = self.hp
     @rState << as
+
+    return _log
 
   end
 
@@ -45,6 +48,7 @@ class FightItem < ApplicationRecord
 
   def cleanupFight
     _log = ""
+    self.gladiator.setFirstFight if self.gladiator.firstfight.nil? #consider moving this to cleanup - allowing no for no gladiator changes until end of fight
     if self.hp < 0
       self.gladiator.killMe
       self.died = :true
@@ -60,13 +64,13 @@ class FightItem < ApplicationRecord
 
   
   def name
-	self.gladiator.name
+	 self.gladiator.name
   end
   def strmod
-	self.gladiator.strmod
+	 self.gladiator.strmod
   end
   def hitmod
-	self.gladiator.hitmod
+	 self.gladiator.hitmod
   end
   
   def getInitiative

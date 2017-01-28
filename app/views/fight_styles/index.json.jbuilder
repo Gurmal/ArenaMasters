@@ -1,0 +1,1 @@
+json.array! @fight_styles, partial: 'fight_styles/fight_style', as: :fight_style

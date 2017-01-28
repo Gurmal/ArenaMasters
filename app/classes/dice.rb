@@ -1,6 +1,5 @@
 class Dice < Numeric
-  #@@sides = 20
-
+  
   def initialize(sides=20,quantity=1,modifier=0)
     @sides = sides
     @quantity = quantity

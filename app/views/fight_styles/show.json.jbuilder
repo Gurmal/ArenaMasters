@@ -1,0 +1,1 @@
+json.partial! "fight_styles/fight_style", fight_style: @fight_style

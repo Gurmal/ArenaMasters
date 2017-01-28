@@ -10,7 +10,8 @@
 
 <p>
   <strong>Fight style:</strong>
-  <%= @gladiator.fightStyle %>
+  <%= @gladiator.fightStyle %> -
+  <%= @gladiator.getStyleName %>
 <br>
   <strong>Reputation:</strong>
   <%= @gladiator.reputation %>
@@ -22,40 +23,45 @@
 <p>
 <h2>Core Stats</h2>
 <table>
+<style>
+table, th, td {
+    text-align:right;
+}
+</style>
   <tr>
     <td><strong>Str:</strong></td>
     <td><%= @gladiator.str %></td>
-    <td>+</td>
+    <td><button type="button" name="str">+</button></td>
   </tr>
 
   <tr>
     <td><strong>Dex:</strong></td>
     <td><%= @gladiator.dex %></td>
-    <td>+</td>
+    <td><button type="button" name="dex">+</button></td>
   </tr>
 
   <tr>
     <td><strong>Spd:</strong></td>
     <td><%= @gladiator.spd %></td>
-    <td>+</td>
+    <td><button type="button" name="spd">+</button></td>
   </tr>
 
   <tr>
     <td><strong>Con:</strong></td>
     <td><%= @gladiator.con %></td>
-    <td>+</td>
+    <td><button type="button" name="con">+</button></td>
   </tr>
 
   <tr>
     <td><strong>Chr:</strong></td>
     <td><%= @gladiator.chr %></td>
-    <td>+</td>
+    <td><button type="button" name="chr">+</button></td>
   </tr>
 
   <tr>
     <td><strong>Intl:</strong></td>
     <td><%= @gladiator.intl %></td>
-    <td>+</td>
+    <td><button type="button" name="intl">+</button></td>
   </tr>
 </table>
 </p>

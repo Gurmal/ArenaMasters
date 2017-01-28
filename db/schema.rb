@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107151636) do
+ActiveRecord::Schema.define(version: 20170128155823) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20170107151636) do
     t.boolean  "won"
     t.index ["fight_id"], name: "index_fight_items_on_fight_id"
     t.index ["gladiator_id"], name: "index_fight_items_on_gladiator_id"
+  end
+
+  create_table "fight_styles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "active"
   end
 
   create_table "fights", force: :cascade do |t|

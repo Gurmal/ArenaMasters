@@ -17,7 +17,8 @@ Sequence: <%= @fight.sequence %><br>
     <tr>
       <th></th>
       <th></th>
-      <th>Name (Rep)</th>
+      <th>Name</th>
+      <td>Rep</th>
       <th>Team</th>
     </tr>
   </thead>
@@ -28,8 +29,8 @@ Sequence: <%= @fight.sequence %><br>
       <td><%= if fighter.won then '<font color=green>won</font>'.html_safe end %></td>
       <td><%= if fighter.died then '<font color=darkred>died</font>'.html_safe end %>
           <%= if fighter.wounded then '<font color=red>wounded</font>'.html_safe end %></td>
-        <td><%= link_to fighter.gladiator.name, team_gladiator_path(fighter.gladiator.team,fighter.gladiator) %>
-        (<%= fighter.gladiator.reputation %>)</td>
+        <td><%= link_to fighter.gladiator.name, team_gladiator_path(fighter.gladiator.team,fighter.gladiator) %></td>
+        <td style="text-align:right"><%= fighter.gladiator.reputation %></td>
         <td><%= fighter.gladiator.team.name %></td>
           
       </tr>

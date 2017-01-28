@@ -1,17 +1,26 @@
-<%= link_to 'Back', teams_path %>
+<nav>
+  <%= link_to 'Back', teams_path %>
+</nav>
 
 <p id="notice"><%= notice %></p>
 
-
+<head>
 <h1>  <%= @team.name %></h1>
 <%= link_to 'Edit Team Name', edit_team_path(@team) %>
+</head>
+
 
 <p>
-  <strong>Accountbalance:</strong>
-  <%= @team.accountbalance %>
-  <br>
-  <strong>Team Reputation:</strong>
-  <%= @team.reputation %>
+<table>
+  <tr>
+    <td><strong>Accountbalance:</strong></td>
+    <td style="text-align: right"><%= @team.accountbalance %></td>
+  </tr>
+  <tr>
+    <td><strong>Team Reputation:</strong></td>
+    <td style="text-align: right"><%= @team.reputation %></td>
+  </tr>
+</table>
 </p>
 
 
@@ -19,16 +28,18 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Reputation</th>
+      <th style ="text-align: left">Name</th>
+      <th style ="text-align: right">Reputation</th>
+      <th>Fight Style</th>
     </tr>
   </thead>
 
   <tbody>
     <% @team.gladiators.where(death: nil).each do |gladiator| %>
       <tr>
-        <td><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
-        <td><%= gladiator.reputation %></td>
+        <td style="text-align: left"><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
+        <td style ="text-align: right"><%= gladiator.reputation %></td>
+        <td><%= gladiator.fightStyle %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,10 +47,11 @@
 
 <h3>Gladiators recently Deceased</h3>
 <table>
+
   <thead>
     <tr>
       <th>Name</th>
-      <th>Reputation</th>
+      <th style ="text-align: right">Reputation</th>
       <th>Death</th>
       <th>Last Fight</th>
     </tr>
@@ -49,7 +61,7 @@
     <% @team.gladiators.where.not(death: nil).each do |gladiator| %>
       <tr>
         <td><%= link_to gladiator.name, team_gladiator_path(@team, gladiator) %></td>
-        <td><%= gladiator.reputation %></td>
+        <td style ="text-align: right"><%= gladiator.reputation %></td>
         <td><%= gladiator.death %></td>
         <td><%= link_to gladiator.fights.last.event.name, event_fight_path(gladiator.fights.last.event, gladiator.fights.last) %></td>
       </tr>
@@ -58,12 +70,17 @@
   </table>
 
 <br>
+<nav>
 <%= link_to 'Backfill Team', backfill_path(@team) %> | 
 <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
 Show Gladiator History |
 Deactivate Team |
 <%= link_to 'Back', teams_path %>
+</nav>
 
 <br><br>
+
+<footer>
 <strong>Teamid:</strong>
   <%= @team.id %>
+</footer>

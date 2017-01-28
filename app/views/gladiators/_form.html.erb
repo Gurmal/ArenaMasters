@@ -18,7 +18,11 @@
 
   <div class="field">
     <%= f.label :fightStyle %>
-    <%= f.number_field :fightStyle %>
+    <%= f.select(:fightStyle) do %>
+      <% [['Balanced', 0], ['Defensive', 1], ['Aggressive', 2], ['Grapper', 3]].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="field">
