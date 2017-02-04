@@ -1,4 +1,5 @@
 
+<header> <%= link_to 'Events', events_path %> |<%= link_to 'Teams', teams_path %></header>
 <p id="notice"><%= notice %></p>
 <head>
 <p><%= link_to 'Event', @event %> |
@@ -19,6 +20,7 @@ Sequence: <%= @fight.sequence %><br>
       <th></th>
       <th>Name</th>
       <td>Rep</th>
+      <td>Style</th>
       <th>Team</th>
     </tr>
   </thead>
@@ -31,6 +33,7 @@ Sequence: <%= @fight.sequence %><br>
           <%= if fighter.wounded then '<font color=red>wounded</font>'.html_safe end %></td>
         <td><%= link_to fighter.gladiator.name, team_gladiator_path(fighter.gladiator.team,fighter.gladiator) %></td>
         <td style="text-align:right"><%= fighter.gladiator.reputation %></td>
+        <td style="text-align:right"><%= fighter.gladiator.fightStyle %></td>
         <td><%= fighter.gladiator.team.name %></td>
           
       </tr>

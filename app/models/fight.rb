@@ -53,6 +53,7 @@ def run
 		    @fighters = @fighters.sort	{ |x,y| y.hp <=> x.hp}
 		  	aWinner = @fighters.shift
 		  	aWinner.won = true
+		  	@fight.winner = aWinner.name
 		   	aWinner.gladiator.reputation += 1
 		    aWinner.gladiator.exp += 1
 		    @log << aWinner.cleanupFight #wounds, death
@@ -82,16 +83,20 @@ def run
   def attack(attacker,defender) #basic attack
     hitDie = Dice.new
     dmgDie = Dice.new(4)
+
     _hitVerb = ['hits', 'smacks','cuts', 'knocks', 'slices', 'gouges']
     _critHitVerb = ['blasts', 'bludgeons', 'guts', 'dismembers', 'impales']
     _bodypart = ['arm', 'leg', 'shoulder', 'side', 'back', 'hand', 'foot', 'face', 'thigh', 'knee', 'ear']
+
     @log << 'Before Attack attacker HP:'+attacker.hp.to_s+'; defender HP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
-    @log << 'Attack: hitdie:'+hitDie.to_i.to_s+'; hitmod:'+attacker.gladiator.hitmod.to_s+'<br>' if $loglevel >= 3
+    @log << 'Attack: hitdie:'+hitDie.to_i.to_s+'; hitmod:'+attacker.gladiator.hitmod.to_s+'; styleBonus:'+getStyleBonus(attacker,defender).to_s+'<br>' if $loglevel >= 3
+    
     #attackers 1d20 + dexterity modifier against defenders spd
-      if (hitDie + attacker.gladiator.hitmod) < 4 #Miss
+    theSwing = hitDie + attacker.gladiator.hitmod + 2*getStyleBonus(attacker,defender)
+      if theSwing < 4 #Miss
         @log<< attacker.name+' misses '+defender.name+'.<br>' if $loglevel >= 2
         attacker.addAction(0,0)
-      elsif (hitDie + attacker.gladiator.hitmod) > 18 #Crit
+      elsif theSwing > 18 #Crit
         damage = (4 + attacker.gladiator.strmod)
         defender.hp -= damage
         attacker.addAction(2,damage)
@@ -103,6 +108,15 @@ def run
         @log << attacker.name+' '+_hitVerb.sample+' '+defender.name+' in the '+_bodypart.sample+' for '+damage.to_s+' damage.<br>' if $loglevel >= 2
       end
       @log << 'aHP:'+attacker.hp.to_s+'; dHP:'+defender.hp.to_s+'<br>' if $loglevel >= 4
+  end
+
+  def getStyleBonus(attacker, defender)
+		aStyle = attacker.gladiator.fightStyle
+		dStyle = defender.gladiator.fightStyle
+		
+		modtable = [0,-1,1,-1,1]
+		modtable.rotate!(aStyle-dStyle)
+		return modtable[0]
   end
 
 end

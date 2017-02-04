@@ -1,9 +1,13 @@
+<header> <%= link_to 'Events', events_path %> |<%= link_to 'Teams', teams_path %></header>
+
+<header>
 <%= link_to 'Edit', edit_team_gladiator_path(@team, @gladiator) %> |
 <%= link_to 'Destroy', team_gladiator_path(@team,@gladiator), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', :back %> |
 <%= link_to 'Team', @team %>
 
 <p id="notice"><%= notice %></p>
+</header>
 
 <h1><%= @gladiator.name %></h1>
 
@@ -112,7 +116,9 @@ table, th, td {
   </tbody>
   </table>
 
+<footer>
 <%= link_to 'Edit', edit_team_gladiator_path(@team, @gladiator) %> |
 <%= link_to 'Destroy', team_gladiator_path(@team,@gladiator), method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', :back %> |
 <%= link_to 'Team', @team %>
+</footer>
