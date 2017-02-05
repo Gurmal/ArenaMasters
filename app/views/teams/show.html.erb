@@ -1,7 +1,4 @@
-<header> <%= link_to 'Events', events_path %> |<%= link_to 'Teams', teams_path %></header>
-<nav>
-  <%= link_to 'Back', teams_path %>
-</nav>
+<%= render "shared/menu" %>
 
 <p id="notice"><%= notice %></p>
 
@@ -10,6 +7,13 @@
 <%= link_to 'Edit Team Name', edit_team_path(@team) %>
 </head>
 
+<nav>
+<%= link_to 'Backfill Team', backfill_path(@team) %> | 
+<%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
+Show Gladiator History |
+Deactivate Team |
+<%= link_to 'Back', teams_path %>
+</nav>
 
 <p>
 <table>
@@ -71,13 +75,7 @@
   </table>
 
 <br>
-<nav>
-<%= link_to 'Backfill Team', backfill_path(@team) %> | 
-<%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
-Show Gladiator History |
-Deactivate Team |
-<%= link_to 'Back', teams_path %>
-</nav>
+
 
 <br><br>
 
