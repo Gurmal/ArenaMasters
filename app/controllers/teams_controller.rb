@@ -5,12 +5,15 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @teams = Team.where(active: true)
+    @teams.each {|x| x.updateReputation}
     
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @team.updateReputation
+    @team.save
   end
 
   def showInActive

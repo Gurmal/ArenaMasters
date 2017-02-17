@@ -1,3 +1,7 @@
+<header> <%= link_to 'Events', @events_path %> |<%= link_to 'Teams', teams_path %></header>
+
+<p><%= link_to 'New Event', new_event_path %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
@@ -13,7 +17,7 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% @events.reverse_each do |event| %>
       <tr>
         <td><%= link_to event.name, event %></td>
         <td><%= event.scheduledDate %></td>
@@ -27,7 +31,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Event', new_event_path %>
-<br><br>
-<%= link_to 'Teams', teams_path %>

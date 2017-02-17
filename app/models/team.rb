@@ -17,10 +17,17 @@ class Team < ApplicationRecord
     self.save
   end
 
+  def updateReputation
+    self.reputation = self.gladiators.sum(:reputation)
+    self.save
+  end
+  
   private
   def setvars
       self.accountbalance = 1000
       self.reputation = 0
       self.active = :true
   end
+
+
 end

@@ -86,7 +86,7 @@ private
     #self.firstfight = '1/1/2001'
     #self.death = '1/1/2001'
 
-    self.fightStyle = 0
+    self.fightStyle = rand(5)+1
     self.wounds = 0
     self.reputation = 0
     self.exp = 0
