@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ #MainMenuTable {
+    width: 100%;
+    background-color: #ebebe0;
+    border: 1px;
+    min-width: 100%;
+    position: relative;
+    opacity: 0.97;
+    
+}

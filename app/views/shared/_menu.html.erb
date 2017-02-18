@@ -1,1 +1,11 @@
-<header> <%= link_to 'Events', events_path %> |<%= link_to 'Teams', teams_path %></header>
+<header>
+<table id="MainMenuTable">
+  <tbody>
+    <tr>
+      <td><%= link_to 'Events', events_path %> | <%= link_to 'Teams', teams_path %></header></td>
+      <td></td>
+      <td style="text-align:right"><%= link_to current_user.email, edit_user_registration_path %></td>
+    </tr>
+  </tbody>
+</table>
+<header>
