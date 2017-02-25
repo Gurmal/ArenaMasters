@@ -4,7 +4,12 @@
     <tr>
       <td><%= link_to 'Events', events_path %> | <%= link_to 'Teams', teams_path %></header></td>
       <td></td>
-      <td style="text-align:right"><%= link_to current_user.email, edit_user_registration_path %></td>
+      <% if current_user.nil? %>
+      <% _name= "Sign In" %>
+      <%else %>
+      <% _name = current_user.email %>
+      <% end %>
+      <td style="text-align:right"><%= link_to _name, edit_user_registration_path %></td>
     </tr>
   </tbody>
 </table>
