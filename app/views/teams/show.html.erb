@@ -1,27 +1,28 @@
-<head>
-<h1>  <%= @team.name %></h1>
-<%= link_to 'Edit Team Name', edit_team_path(@team) %>
-</head>
-
 <nav>
-<%= link_to 'Backfill Team', backfill_path(@team) %> | 
-<%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
-Show Gladiator History |
-Deactivate Team |
-<%= link_to 'Back', teams_path %>
+  <%= link_to 'Backfill Team', backfill_path(@team) %> | 
+  <%= link_to 'Hire Gladiator', new_team_gladiator_path(@team) %> | 
+  Show Gladiator History |
+  Deactivate Team |
+  <%= link_to 'Back', teams_path %>
 </nav>
 
+<head>
+  <h1>  <%= @team.name %></h1>
+  <%= link_to 'Edit Team Name', edit_team_path(@team) %><br>
+  Owner: <%= (@team.user ||= User.new).userid%>
+</head>
+
 <p>
-<table>
-  <tr>
-    <td><strong>Accountbalance:</strong></td>
-    <td style="text-align: right"><%= @team.accountbalance %></td>
-  </tr>
-  <tr>
-    <td><strong>Team Reputation:</strong></td>
-    <td style="text-align: right"><%= @team.reputation %></td>
-  </tr>
-</table>
+  <table>
+    <tr>
+      <td><strong>Accountbalance:</strong></td>
+      <td style="text-align: right"><%= @team.accountbalance %></td>
+    </tr>
+    <tr>
+      <td><strong>Team Reputation:</strong></td>
+      <td style="text-align: right"><%= @team.reputation %></td>
+    </tr>
+  </table>
 </p>
 
 
@@ -44,11 +45,11 @@ Deactivate Team |
       </tr>
     <% end %>
   </tbody>
-  </table>
+</table>
 
 <h3>Gladiators recently Deceased</h3>
-<table>
 
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -68,7 +69,7 @@ Deactivate Team |
       </tr>
     <% end %>
   </tbody>
-  </table>
+</table>
 
 <br>
 

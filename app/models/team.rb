@@ -1,6 +1,8 @@
 class Team < ApplicationRecord
   has_many :gladiators
   has_many :events
+  belongs_to  :user
+
   
   before_create :setvars
   
@@ -10,7 +12,7 @@ class Team < ApplicationRecord
     #count only the live gladiators
     _liveTeam = self.gladiators.select{|x| x.death.nil?}
     while i < (10 - _liveTeam.count)
-      nameslist = ['Abner','Bob', 'Cindy', 'Dwane', 'Eli' , 'Frank', 'Gwen', 'Hodor', 'Ileen','Jane', 'Kas']
+      nameslist = ['Abner','Bob', 'Cindy', 'Dwane', 'Eli' , 'Frank', 'Gwen', 'Hodor', 'Ileen','Jane', 'Kas', 'Xander']
         self.gladiators.build(name: nameslist.sample+rand(999).to_s)
         i+=1
     end
