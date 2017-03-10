@@ -33,4 +33,4 @@ seedBackfill(t3)
 
 Event.create(name:"Test Event 1")
 
-
+user=User.create!(:email=>'jeremy.showers@gmail.com',:username=>'Gurmal',:password=>'jds123')

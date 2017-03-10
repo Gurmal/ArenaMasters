@@ -13,6 +13,7 @@ class Ability
         can :read, Team
         can :manage, Team, :user_id => user.id
         can :manage, Gladiator, :team => { :user_id => user.id }
+        can :create, Gladiator
     end
     #
     # The first argument to `can` is the action you are giving the user 
