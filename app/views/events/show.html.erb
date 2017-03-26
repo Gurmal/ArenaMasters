@@ -1,7 +1,4 @@
-<header> <%= link_to 'Events', @events_path %> |<%= link_to 'Teams', teams_path %></header>
-<p id="notice"><%= notice %></p>
-
-  <h1><%= @event.name %></h1>
+<h1><%= @event.name %></h1>
 
 <p>
   <strong>Scheduled:</strong>
@@ -10,6 +7,11 @@
   <strong>Run:</strong>
   <%= @event.runDate %>
 </p>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Build Schedule' , buildSchedule_path(@event) %> |
+<%= link_to 'Run' , run_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
 
 <h2>Fights on Schedule</h2>
 <table>
@@ -41,7 +43,3 @@
   </tbody>
   </table>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Build Schedule' , buildSchedule_path(@event) %> |
-<%= link_to 'Run' , run_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

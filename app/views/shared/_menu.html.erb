@@ -1,1 +1,17 @@
-<header> <%= link_to 'Events', events_path %> |<%= link_to 'Teams', teams_path %></header>
+<header>
+<table id="MainMenuTable">
+  <tbody>
+    <tr>
+      <td><%= link_to 'Events', events_path %> | <%= link_to 'Teams', teams_path %> | <%= link_to 'Users', users_index_path %></header></td>
+      <td></td>
+      <td style="text-align:right">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> | <%= current_user.role %>: <%= link_to current_user.userid ||= current_user.email, edit_user_registration_path %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path)  %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<header>

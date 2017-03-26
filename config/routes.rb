@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/index'
+
+  get 'users/edit/:id', to: 'users#edit'
+
+  
+  devise_for :users
   resources :fight_styles
   get 'fights/show'
 
@@ -8,7 +18,6 @@ Rails.application.routes.draw do
   get 'teams/:id/backfill', to: 'teams#backfill', as: 'backfill'
   get 'teams/backfill', to: 'teams#backfillAll', as: 'backfillAll'
   get 'teams/showInactive', to: 'teams#showInActive', as: 'showInActive'
-
 
   resources :events do
   	resources :fights, only: [:show]

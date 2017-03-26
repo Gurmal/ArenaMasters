@@ -1,6 +1,7 @@
 class GladiatorsController < ApplicationController
   before_action :set_team
   before_action :set_gladiator, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /gladiators
   # GET /gladiators.json

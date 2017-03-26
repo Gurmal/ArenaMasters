@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Email</th>
+      <th>Id</th>
+      <th>UserID</th>
+      <th>Role</th>
+      <th>Teamid</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td style="text-align: left"> <%= user.email %></td>
+        <td><%= user.id %></td>
+        <td><%= user.userid %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to (user.teams.first ||= Team.new()).name, user.teams.first %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

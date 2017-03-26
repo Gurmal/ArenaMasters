@@ -1,12 +1,12 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy, :backfill]
+  load_and_authorize_resource
 
   # GET /teams
   # GET /teams.json
   def index
     @teams = Team.where(active: true)
-    @teams.each {|x| x.updateReputation}
-    
+    @teams.each {|x| x.updateReputation}   
   end
 
   # GET /teams/1
